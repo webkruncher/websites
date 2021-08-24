@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+		<script type="text/javascript" src="ajax/Tree.js" ></script>
+		<!-- link rel="stylesheet" href="style.css" type="text/css" -->
+<body>	
+	<table>
+		<tr ID="Errors" />
+	</table>
+
+	<form method="post">
+		<table>
+			<tr>
+				<td valign='top'>
+					<h3>Input</h3>
+					<div 
+						ID="InputFrame" 
+						style="overflow:scroll; width:400px;height:400px;"
+					> 
+				</td>
+				<td valign="top" style="display:none;">
+						<h3>Working Object</h3>
+						<div 
+							ID="WorkingObjFrame" 
+							style="overflow:scroll; height:400px;"
+							"overflow:scroll; height:400px;"
+						>
+				</td>
+				<td valign="top" style="display:inline;">
+					<h3>Edit Window</h3>
+					<div style="width:500px;height:400px;overflow:scroll;"
+						ID="TreeRoot" class="Tree" 
+					/>
+				</td>
+				<td valign='top'>
+						<input type='submit' onclick="return SubmitTree()" />
+				</td>
+				<td valign="top" style="display:none;">
+						<h3>Submit Object </h3>
+						<div style="height:400px;overflow:scroll;"
+							ID="OutputFrame" 
+						/>
+				</td>
+				<td valign='top'>
+						<h3>Output</h3>
+						<div style="width:400px;height:400px;overflow:scroll;"
+							ID="SubmitJson" 
+						/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<div style="height:400px;overflow:scroll;">
+						<table>
+							<tr ID="Progress" />
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<hr />
+	</form>
+</body>
+	<style>
+		.Tree
+		{
+			display:block; 
+			margin:10px; 
+			border: outset thin;
+			width:10%;
+			#position:absolute; 
+			top:200px; 
+			left:200px;
+		}
+		.Frame
+		{
+			display:block; 
+			margin:10px; 
+		}
+		.Name
+		{
+			display:inline; 
+			margin-left:20px; 
+			padding-left:10px;
+			padding-right:10px;
+			border-left: dashed thin black;
+		}
+		.Value
+		{
+			display:block; 
+			margin:20px; 
+			padding-left:10px;
+			padding-right:10px;
+			border-bottom: dashed thin black;
+		}
+		.SubObj
+		{
+			display:inline; 
+			border:none;
+			margin:20px; 
+		}
+		.Opener
+		{
+			font-size:1.3em;
+			font-weight:bold;
+			cursor:pointer; 
+			display:inline; 
+			margin:10px; 
+			border:outset;
+		}
+		.Closer
+		{
+			display:none; 
+			font-size:1.3em;
+			font-weight:bold;
+			cursor:pointer; 
+			margin:10px; 
+			border:outset;
+		}
+	</style>
+
+<script language="JavaScript" >
+
+function GetInputBuildTree( url )
+{
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState == 4 && xhr.status == 200)
+		{ 
+			//alert( xhr.responseText )
+			var InputForDisplay=JSON.parse(xhr.responseText) 
+			var s = JSON.stringify( InputForDisplay,null,2) // format
+			var e = new Option(s).innerHTML // escape
+			InputFrame.insertAdjacentHTML('beforeend','<pre>'+e+'</pre>') // display
+			TreeBuilder( JSON.parse(xhr.responseText) )
+		}
+	};
+
+	xhr.open("GET", url, true);
+	xhr.send();
+}
+
+
+function Loader()
+{
+	substandard=false
+	try{new ActiveXObject("Msxml.DOMDocument");substandard=true;}catch(e){};
+	try{new ActiveXObject("Msxml2.DOMDocument");substandard=true;}catch(e){};
+	try{new ActiveXObject("Msxml2.XMLHTTP");substandard=true;}catch(e){};
+	try{new ActiveXObject("Microsoft.XMLHTTP");substandard=true;}catch(e){}
+	GetInputBuildTree( 'test.json' )
+	//setTimeout("TreeLoader()",10)
+}
+
+
+
+
+
+function FlipLoader()
+{
+	setTimeout("Loader()",100)
+}
+window.onload=FlipLoader
+
+
+function SubmitTree()
+{
+	var s = JSON.stringify( node ,null,2) // format
+	var e = new Option(s).innerHTML // escape
+	OutputFrame.innerHTML=""
+	OutputFrame.insertAdjacentHTML('beforeend','<pre>'+e+'</pre>') // display
+	SubmitJson.innerHTML=""
+	results={}
+	node.Submit( results )
+	SubmitJson.insertAdjacentHTML('beforeend','<pre>'+JSON.stringify( results , null, 2 )+'</pre>') // display
+	return false
+}
+
+
+
+
+</script>
+
+
+
+

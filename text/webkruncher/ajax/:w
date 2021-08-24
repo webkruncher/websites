@@ -1,0 +1,337 @@
+
+
+
+var JaxTree={}
+
+function Treeify( input )
+{
+	try
+	{
+		this.input=input
+	} catch (e) {
+		LoadError("Cannot Ajax.")
+	}
+}
+
+
+
+Treeify.prototype.nothing = function () 
+{
+	try 
+	{ 
+	} catch(e) {
+	}
+	return null;
+}
+
+Treeify.prototype.StatusMessage = function(ssv)
+{
+	if (ssv == '0') return 'uninitialized';
+	if (ssv == '1') return 'loading';
+	if (ssv == '2') return 'loaded';
+	if (ssv == '3') return 'interactive';
+	if (ssv == '4') return 'complete';
+	return 'unknown state'
+}
+
+Treeify.prototype.diagnostics = function(msg)
+{
+}
+
+Treeify.prototype.StatusChange = function (url,reqobj)
+{
+}
+
+Treeify.prototype.Load = function ()
+{ 
+	try
+	{
+		alert("unused")
+		//TreeBuilder( this.input ) 	
+		alert( JSON.stringify( this.input ) )	
+	} catch (e) { 
+	}
+};
+
+
+
+
+		
+function TreeLoader()
+{
+	var xhr = new XMLHttpRequest();
+	var url = "test.json"
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) { 
+			var jsonData = JSON.parse( xhr.responseText ); 
+			var TreeTop = new Treeify( jsonData )
+			TreeTop.Load()
+		}
+	};
+	xhr.open("GET", url, true);
+	xhr.send();
+}
+
+function Trace( what )
+{
+	tr=document.createElement("tr")
+	td=document.createElement("td")
+	d=document.createElement("div")
+	d.setAttribute("style","border:none;background:white;color:black;padding:2px;border-style:outset;font-weight:thin;font-size:0.8em;")
+	d.innerHTML=what
+	td.appendChild(d)
+	tr.appendChild(td)
+	GetObject("Progress").appendChild( tr )
+}
+
+function ErrorHandler( what )
+{
+	tr=document.createElement("tr")
+	td=document.createElement("td")
+	d=document.createElement("div")
+	d.setAttribute("style","border:yellow;background:red;color:yellow;padding:8px;border-style:outset;font-weight:bold;");
+	d.innerHTML=what
+	td.appendChild(d)
+	tr.appendChild(td)
+	GetObject("Errors").appendChild( tr )
+}
+
+function opendiv( what) {
+	GetObject( what ).style.display="block"
+	GetObject( "open_"+what ).style.display="none"
+	GetObject( "close_"+what ).style.display="inline"
+}
+function closediv( what) {
+	GetObject( what ).style.display="none"
+	GetObject( "open_"+what ).style.display="inline"
+	GetObject( "close_"+what ).style.display="none"
+}
+
+String.prototype.replaceEvery = function(what, how)
+{
+    return this.split(what).join(how);
+}
+
+
+function GetObject(name)
+{
+	if (document.layers){return document.layers[name];}
+	else if (document.all){return document.all[name];}
+	else if (document.getElementById){return document.getElementById(name);}
+}
+
+
+
+///// DNTREE ///
+function JsonTree( IO, json )
+{
+	this.treenode=true
+	this.IO=IO
+	this.json=json
+}
+
+JsonTree.prototype.FullPath = function ( )
+{
+}
+
+
+// BECOMING DEPRECATED
+		//node.oldbuild( "cn=jim,o=none,ou=sub1,ou=end_of_jim_A" ) 
+		//node.oldbuild( "cn=jim,o=none,ou=sub1,ou=end_of_jim_A" ) 
+		//node.oldbuild( "cn=joe,o=something,ou=cat1,ou=end_of_joe" ) 
+		//node.oldbuild( "cn=jim,o=none,ou=sub1,ou=sub2, ou=end_of_jim_2A" ) 
+		//node.oldbuild( "cn=jim,o=none,ou=sub1,ou=sub2, ou=end_of_jim_2B" ) 
+		//node.oldbuild( "cn=jim,o=none,ou=sub1,ou=sub3, ou=end_of_jim_3B" ) 
+JsonTree.prototype.oldbuild = function ( dn )
+{
+        try
+        {
+		this.uid=dn.replaceEvery( ",", "_" )
+		if ( dn.length == 0 ) 
+		{
+			this.datanode=true
+			return
+		}  else {
+			this.branchnode=true
+		}
+
+		coma=dn.indexOf(',')
+		if ( coma < 1 ) {
+			left=dn
+			right=""
+		} else {
+			left=dn.substr(0, coma )
+			right=dn.substr(coma+1 )
+		}
+
+		if ( right.length > 0 ) 
+			Trace( left + "->" + right ) 
+		else 
+			Trace( left  )
+
+		if ( ! this[ left ]  ) 
+		{
+			this.IO[ left ]={}
+			this[ left ] = new JsonTree( this.IO[ left ] )
+			this[ left ].name=left
+			this[ left  ].uid=dn.replaceEvery( ",", "_" )
+		}
+
+		this[ left ].oldbuild( right, this )
+		
+        } catch(e) {
+		ErrorHandler( e )
+        }
+}
+// BECOMING DEPRECATED
+
+JsonTree.prototype.addnode = function ( obj )
+{
+
+	frameobj=document.createElement("div")
+	frameobj.className="Frame"
+	obj.appendChild( frameobj )
+
+
+	opener=document.createElement("div")
+	opener.setAttribute("style","display:inline;")
+	opener.setAttribute("ID", "open_"+this.uid )
+	opener.setAttribute("target", this.uid )
+	opener.innerHTML="+"
+	opener.className="Opener"
+
+	opener.onclick = function () {
+		opendiv( this.getAttribute( "target" ) )
+	};
+
+	frameobj.appendChild( opener )
+
+	closer=document.createElement("div")
+	closer.className="Closer"
+	closer.setAttribute("ID", "close_"+this.uid )
+	closer.setAttribute("target", this.uid )
+	closer.innerHTML="-"
+	closer.onclick = function () {
+		closediv( this.getAttribute( "target" ) )
+	};
+	frameobj.appendChild( closer )
+
+	nameobj=document.createElement("div")
+	nameobj.className="Name"
+	nameobj.innerHTML=this.name
+	frameobj.appendChild( nameobj )
+
+	subobj=document.createElement("div")
+	subobj.setAttribute("style","display:none;")
+	subobj.className="SubObj"
+	subobj.setAttribute("ID", this.uid)
+
+	frameobj.appendChild( subobj )
+
+
+
+
+	return subobj
+
+
+}
+
+JsonTree.prototype.show = function ( obj )
+{
+        try
+        {
+		for ( var n in this )
+		{
+			if ( this[ n ].datanode )
+			{
+				
+				d=document.createElement("div")
+				d.innerHTML=this[ n ].name 
+				d.className="Value"
+				obj.appendChild( d )
+			}
+			if ( this[ n ].branchnode )
+			{
+				d=document.createElement("div")
+				subobj=this[ n ].addnode( d )
+				//this.IO=subobj
+
+				obj.appendChild( d )
+				this[n].show( subobj )
+			}
+
+					
+		}
+		
+        } catch(e) {
+		ErrorHandler( e )
+        }
+}
+///// DNTREE ///
+
+
+function TreeBuilder( json )
+{
+        try
+        { 
+		node=new JsonTree( JaxTree, json )
+		node.buildjson( "JaxRootNode" )
+		node.show( GetObject( 'TreeRoot' ) )
+        } catch (e) {
+		ErrorHandler( e )
+        }
+
+}
+
+
+
+JsonTree.prototype.buildjson = function ( parentpath )
+{
+        try
+        {
+Trace( "BuildJson->"+parentpath) 
+//alert( parentpath+"->Building JsonTree:" + JSON.stringify( this.json ) ) 
+		this.uid=parentpath
+//		if ( NodeSet.length == 0 ) 
+//		{
+//			this.datanode=true
+//			return
+//		}  else {
+//			this.branchnode=true
+//		}
+//
+//		coma=NodeSet.indexOf(',')
+//		if ( coma < 1 ) {
+//			this.left=NodeSet
+//			right=""
+//		} else {
+//			this.left=NodeSet.substr(0, coma )
+//			right=NodeSet.substr(coma+1 )
+//		}
+//
+//		if ( right.length > 0 ) 
+//			Trace( this.left + "->" + right ) 
+//		else 
+//			Trace( this.left  )
+
+		for ( this.left in this.json )
+		{
+			Trace( "Left:"+parentpath+"->"+this.left )
+
+			if ( ! this.IO[ this.left ]  ) 
+			{
+				//this.IO[ this.left ]={}
+				this.IO[ this.left ] = new JsonTree( this.IO[ this.left ], this.json[ this.left ] )
+				//this[ this.left ].name=this.left
+				//this[ this.left  ].uid=NodeSet.replaceEvery( ",", "_" )
+			}
+
+			this[ this.IO.left ].buildjson( parentpath+"/"+this.left )
+		}
+		
+        } catch(e) {
+		ErrorHandler( e )
+        }
+}
+
