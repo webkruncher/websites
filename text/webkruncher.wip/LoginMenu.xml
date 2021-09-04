@@ -1,0 +1,14 @@
+
+
+	<item>
+		<name>Login</name><text></text>
+		<item>
+			<item>
+				<name>Login</name><text>Login</text>
+				<clicked>LoginPage("login")</clicked>
+			</item>
+		</item>
+	</item>
+
+
+

@@ -1,0 +1,51 @@
+
+JsonTree.prototype.addnode = function ( obj )
+{
+	Trace( "++"+JSON.stringify( this ))
+	frameobj=document.createElement("div")
+	frameobj.className="Frame"
+	obj.appendChild( frameobj )
+
+
+	opener=document.createElement("div")
+	opener.setAttribute("style","display:inline;")
+	opener.setAttribute("ID", "open_"+this.childpath )
+	opener.setAttribute("target", this.childpath )
+	opener.innerHTML="+"
+	opener.className="Opener"
+
+	opener.onclick = function () {
+		opendiv( this.getAttribute( "target" ) )
+	};
+
+	frameobj.appendChild( opener )
+
+	closer=document.createElement("div")
+	closer.className="Closer"
+	closer.setAttribute("ID", "close_"+this.childpath )
+	closer.setAttribute("target", this.childpath )
+	closer.innerHTML="-"
+	closer.onclick = function () {
+		closediv( this.getAttribute( "target" ) )
+	};
+	frameobj.appendChild( closer )
+
+	nameobj=document.createElement("div")
+	nameobj.className="Name"
+	nameobj.innerHTML=this.name
+	frameobj.appendChild( nameobj )
+
+	subobj=document.createElement("div")
+	subobj.setAttribute("style","display:none;")
+	subobj.className="SubObj"
+	subobj.setAttribute("ID", this.childpath)
+
+	frameobj.appendChild( subobj )
+
+
+
+
+	return subobj
+
+
+}

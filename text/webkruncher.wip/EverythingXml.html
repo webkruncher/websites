@@ -1,0 +1,35 @@
+<html>
+<xmp>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="html" />
+
+<xsl:template match="html">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<html>
+		<head>
+			<script type="text/javascript" src="tools.js" ></script>
+		</head>
+		<body>
+			<xsl:apply-templates />
+		</body>
+	</html>
+</xsl:template>
+
+
+<xsl:template match="*">
+	<xsl:element name="{name()}">
+		<xsl:for-each select="@*">
+			<xsl:attribute name="{name()}">
+				<xsl:value-of select="." />
+			</xsl:attribute>
+		</xsl:for-each>
+		<xsl:apply-templates select="*|text()" />
+	</xsl:element>
+</xsl:template>
+
+</xsl:stylesheet>
+
+</xmp>
+</html>
+
