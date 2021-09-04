@@ -15,7 +15,7 @@ var Diagnostics = null
 var LockDiagnostics = null
 var InitDiagnostics = null
 var UserMessages = null
-var buggness = false;
+var buggness = true;
 var AlertLimiter = 1 
 var StartedApplicationAt=new Date()
 var ConnectionStatus = true
@@ -119,15 +119,15 @@ function ViewPortManager()
 
 function buggy()
 {
-	if (buggness ) buggness =false;
-	else buggness =true;
+	//if (buggness ) buggness =false;
+	//else buggness =true;
 	if (buggness) 
 	{
 		diagnostics_root.style.display="inline";
-		SparkyTextDiv.style.display="none";
+		//SparkyTextDiv.style.display="none";
 	} else {
 		diagnostics_root.style.display="none";
-		SparkyTextDiv.style.display="inline";
+		//SparkyTextDiv.style.display="inline";
 	}
 }
 
@@ -174,7 +174,6 @@ function MenuCheck()
 	{
 		if (!MenuLoaded)
 		{	
-			//UserMessages.Write("Error loading menu, trying again");
 			LoadProgress("Menu...")
 			LoadLeftMenu();		
 			clearInterval(MenuChecker)
@@ -192,13 +191,13 @@ function AfterAjax2()
 		UserMessages=new MsgTable(GetObject('UserMessages'))
 		if (buggness) 
 		{
-			UserMessages.Color("purple");
-			UserMessages.Background("black");
+			//UserMessages.Color("yellow");
+			//UserMessages.Background("black");
 		}
-		UserMessages.MaxLength(3)
+		UserMessages.MaxLength(30)
 	}
 
-	if (buggness) UserMessages.Write("Testing in progress")
+	//if (buggness) UserMessages.Write("Testing in progress")
 
 
 	if (webkruncherxslt_txt.length < 1)
@@ -266,8 +265,7 @@ function ResetUserMessages()
 {
 	UserMessages.Hide()
 	UserMessages=new MsgTable(GetObject('UserMessages'))
-	UserMessages.Color("white")
-	UserMessages.Write('Welcome to WebKruncher')
+	buggness=false
 }
 
 var flipped=0
@@ -290,8 +288,7 @@ function AfterFlip()
 		ShowNode(true,"PreInitDiagnosticsDiv")
 
 		LoadProgress("Initializing...")
-		new ajax("index.xml",GetObject("RootNode"),ToBeDone,null)
-	}
+		jax = new ajax("index.xml",GetObject("RootNode"),ToBeDone,null) }
 	catch(e) {
 		LoadProgress(e)
 	}

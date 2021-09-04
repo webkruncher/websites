@@ -678,15 +678,15 @@ TD
 {
 	position:absolute;
 	top:20px;
-	left:680px;
+	left:780px;
 	color:black;
 }
 
 .UserMessageText
 {
-	font-weight:900;
-	font-size:12px;
-	color:black;
+	font-weight:200;
+	font-size:10px;
+	color:#AAAAAA;
 }
 
 .utr
