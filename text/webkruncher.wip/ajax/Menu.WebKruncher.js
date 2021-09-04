@@ -271,7 +271,8 @@ function RetryAjaxInit(targetPage)
 {
 	if (!webkruncherxslt) 
 	{
-		if (buggness) alert("Ajax init failed, retrying");
+		//if (buggness) alert("Ajax init failed, retrying");
+		if (buggness) UserMessages.Write("Ajax init failed, retrying");
 		InitializeAjax()
 		setTimeout("RetryAjaxInit('"+targetPage+"')",1000);
 		return;

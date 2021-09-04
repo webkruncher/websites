@@ -185,9 +185,7 @@ function MenuCheck()
 function AfterAjax2()
 {
 
-	LoadProgress("Typesetting...")
 	MenuChecker=setInterval("MenuCheck()",100);
-	LoadProgress(">>")
 
 	if (!UserMessages)
 	{
@@ -210,24 +208,6 @@ function AfterAjax2()
 		setTimeout('AfterAjax2()',100)
 		return
 	} 
-	LoadProgress("...")
-		//InitDiagnostics.Write("SystemLocked div: "+GetObject('SystemLock'))
-		//LockDiagnostics=new MsgView(GetObject('SystemLock').childNodes[1])
-		//InitDiagnostics.Write("Lock messages initialized")
-		//LockDiagnostics.MaxLength(5)
-		//InitDiagnostics.Write("Showing lock diagnostics")
-		GetObject("WebKruncherLogo").id='WebKruncherLogo'
-		GetObject("WebKruncherLogo").setAttribute('collisions','wklcollide')
-	LoadProgress("---")
-		//crumbs=new Breadcrumbs(GetObject('CrumbTable'))
-		//crumbs.MaxLength(3)
-		//o=GetObject("PreInitDiagnosticsDiv")
-		//o.style.display="none"
-		//Diagnostics=new MsgView(GetObject('DiagnosticsDiv').childNodes[1])
-		//Diagnostics.Show()
-		//Diagnostics.MaxLength(13)
-		//UserMessages=new MsgTable(GetObject('UserMessages'))
-		//UserMessages.MaxLength(3)
 	FocusOn('DeadTarget')
 	setVisible(GetObject('MastheadText'),false);
 	LoadProgress("***")
@@ -249,8 +229,8 @@ function AfterAjax2()
 
 	LoadProgress("+++")
 
-//	setTimeout( "LogoAnimator()", 5000 )
-	anim = new Animator('anim',  GetObject('WebKruncherLogo') ,1,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
+	//anim = new Animator('anim',  GetObject('WebKruncherLogo') ,1,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
+	anim = new Animator('anim',  GetObject('WebKruncherLogo') ,30,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
 	anim.spinstart=12
 	anim.spinend=31
 	anim.Animate();
@@ -261,7 +241,6 @@ function AfterAjax2()
 
 	LoadProgress("000")
 	UserMessages.Write("Welcome to WebKruncher")
-new ajax("test.json",testjson,nocomment);
 	LoadDynamicMenu()
 	FocusOn('DeadTarget')
 	if (buggness) setTimeout("ResetUserMessages()",5000);
@@ -305,21 +284,13 @@ function AfterFlip()
 			setTimeout('AfterFlip()',1000)
 			return
 		} 
-		//LoadProgress("Initializing...")
 		GetViewport() 
 		emo="display:inline;position:absolute;top:"+(viewportheight-100)+";left:"+(viewportwidth-400)+";"
 		GetObject("EntryMsg").setAttribute("style",emo)
 		ShowNode(true,"PreInitDiagnosticsDiv")
-		//InitDiagnostics=new MsgView(GetObject('PreInitDiagnosticsDiv').childNodes[1])
-		//InitDiagnostics.CantHide()
-		//InitDiagnostics.Show()
-		//InitDiagnostics.Write("Loading")
-		//ShowNode(false,"DefaultWelcomeMessage")
 
 		LoadProgress("Initializing...")
-		//if (InitDiagnostics) InitDiagnostics.Write("index")
 		new ajax("index.xml",GetObject("RootNode"),ToBeDone,null)
-		//LoadProgress("Initializing....")
 	}
 	catch(e) {
 		LoadProgress(e)

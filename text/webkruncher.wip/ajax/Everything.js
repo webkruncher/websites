@@ -15,7 +15,7 @@ var Diagnostics = null
 var LockDiagnostics = null
 var InitDiagnostics = null
 var UserMessages = null
-var buggness = false;
+var buggness = true;
 var AlertLimiter = 1 
 var StartedApplicationAt=new Date()
 var ConnectionStatus = true
@@ -119,15 +119,15 @@ function ViewPortManager()
 
 function buggy()
 {
-	if (buggness ) buggness =false;
-	else buggness =true;
+	//if (buggness ) buggness =false;
+	//else buggness =true;
 	if (buggness) 
 	{
 		diagnostics_root.style.display="inline";
-		SparkyTextDiv.style.display="none";
+		//SparkyTextDiv.style.display="none";
 	} else {
 		diagnostics_root.style.display="none";
-		SparkyTextDiv.style.display="inline";
+		//SparkyTextDiv.style.display="inline";
 	}
 }
 
@@ -174,7 +174,7 @@ function MenuCheck()
 	{
 		if (!MenuLoaded)
 		{	
-			//UserMessages.Write("Error loading menu, trying again");
+			UserMessages.Write("Loading left menu")
 			LoadProgress("Menu...")
 			LoadLeftMenu();		
 			clearInterval(MenuChecker)
@@ -185,19 +185,17 @@ function MenuCheck()
 function AfterAjax2()
 {
 
-	LoadProgress("Typesetting...")
 	MenuChecker=setInterval("MenuCheck()",100);
-	LoadProgress(">>")
 
 	if (!UserMessages)
 	{
 		UserMessages=new MsgTable(GetObject('UserMessages'))
 		if (buggness) 
 		{
-			UserMessages.Color("purple");
-			UserMessages.Background("black");
+			//UserMessages.Color("yellow");
+			//UserMessages.Background("black");
 		}
-		UserMessages.MaxLength(3)
+		UserMessages.MaxLength(30)
 	}
 
 	if (buggness) UserMessages.Write("Testing in progress")
@@ -210,24 +208,6 @@ function AfterAjax2()
 		setTimeout('AfterAjax2()',100)
 		return
 	} 
-	LoadProgress("...")
-		//InitDiagnostics.Write("SystemLocked div: "+GetObject('SystemLock'))
-		//LockDiagnostics=new MsgView(GetObject('SystemLock').childNodes[1])
-		//InitDiagnostics.Write("Lock messages initialized")
-		//LockDiagnostics.MaxLength(5)
-		//InitDiagnostics.Write("Showing lock diagnostics")
-		GetObject("WebKruncherLogo").id='WebKruncherLogo'
-		GetObject("WebKruncherLogo").setAttribute('collisions','wklcollide')
-	LoadProgress("---")
-		//crumbs=new Breadcrumbs(GetObject('CrumbTable'))
-		//crumbs.MaxLength(3)
-		//o=GetObject("PreInitDiagnosticsDiv")
-		//o.style.display="none"
-		//Diagnostics=new MsgView(GetObject('DiagnosticsDiv').childNodes[1])
-		//Diagnostics.Show()
-		//Diagnostics.MaxLength(13)
-		//UserMessages=new MsgTable(GetObject('UserMessages'))
-		//UserMessages.MaxLength(3)
 	FocusOn('DeadTarget')
 	setVisible(GetObject('MastheadText'),false);
 	LoadProgress("***")
@@ -249,8 +229,8 @@ function AfterAjax2()
 
 	LoadProgress("+++")
 
-//	setTimeout( "LogoAnimator()", 5000 )
-	anim = new Animator('anim',  GetObject('WebKruncherLogo') ,1,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
+	//anim = new Animator('anim',  GetObject('WebKruncherLogo') ,1,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
+	anim = new Animator('anim',  GetObject('WebKruncherLogo') ,30,31, 1,150,WKLw,WKLh,"Steel/Logo/",".png",4,false);
 	anim.spinstart=12
 	anim.spinend=31
 	anim.Animate();
@@ -261,7 +241,6 @@ function AfterAjax2()
 
 	LoadProgress("000")
 	UserMessages.Write("Welcome to WebKruncher")
-new ajax("test.json",testjson,nocomment);
 	LoadDynamicMenu()
 	FocusOn('DeadTarget')
 	if (buggness) setTimeout("ResetUserMessages()",5000);
@@ -287,8 +266,8 @@ function ResetUserMessages()
 {
 	UserMessages.Hide()
 	UserMessages=new MsgTable(GetObject('UserMessages'))
-	UserMessages.Color("white")
-	UserMessages.Write('Welcome to WebKruncher')
+	//UserMessages.Color("yellow")
+	//UserMessages.Write('Welcome to WebKruncher')
 }
 
 var flipped=0
@@ -305,22 +284,13 @@ function AfterFlip()
 			setTimeout('AfterFlip()',1000)
 			return
 		} 
-		//LoadProgress("Initializing...")
 		GetViewport() 
 		emo="display:inline;position:absolute;top:"+(viewportheight-100)+";left:"+(viewportwidth-400)+";"
 		GetObject("EntryMsg").setAttribute("style",emo)
 		ShowNode(true,"PreInitDiagnosticsDiv")
-		//InitDiagnostics=new MsgView(GetObject('PreInitDiagnosticsDiv').childNodes[1])
-		//InitDiagnostics.CantHide()
-		//InitDiagnostics.Show()
-		//InitDiagnostics.Write("Loading")
-		//ShowNode(false,"DefaultWelcomeMessage")
 
 		LoadProgress("Initializing...")
-		//if (InitDiagnostics) InitDiagnostics.Write("index")
-		new ajax("index.xml",GetObject("RootNode"),ToBeDone,null)
-		//LoadProgress("Initializing....")
-	}
+		jax = new ajax("index.xml",GetObject("RootNode"),ToBeDone,null) }
 	catch(e) {
 		LoadProgress(e)
 	}

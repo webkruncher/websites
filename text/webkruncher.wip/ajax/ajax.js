@@ -41,7 +41,7 @@ function ajax(xmlname,  target,callback,positioner)
 			GetObject("EntryMsg").innerHTML="Loading the WebKruncher style"
 			this.load('ajax/webkruncher.xslt')
 		} else {
-			//GetObject("EntryMsg").innerHTML="Loading " + this.xmlname
+			if ( UserMessages ) UserMessages.Write( this.xmlname )
 			this.load(this.xmlname)
 		}
 	} catch (e) {
@@ -120,11 +120,9 @@ ajax.prototype.load = function (url)
 				reqnode.StatusChange(url,reqnode.httpRequest)
 				if (reqnode.httpRequest.readyState == 4) 
 				{
-//if ( url == "test.json" ) UserMessages.Write("State " + url + " -> " + reqnode.httpRequest.readyState )
 					if (reqnode.httpRequest.status != 200) 
 					{
-if ( url == "test.json" ) alert( this.responseText )
-						//if (buggness) alert(reqnode.httpRequest.status)
+						if (buggness) UserMessages.Write( this.url + " status " + reqnode.httpRequest.status )
 					}
 					if (reqnode.cachexslt)
 					{
