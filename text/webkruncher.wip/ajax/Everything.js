@@ -174,7 +174,6 @@ function MenuCheck()
 	{
 		if (!MenuLoaded)
 		{	
-			UserMessages.Write("Loading left menu")
 			LoadProgress("Menu...")
 			LoadLeftMenu();		
 			clearInterval(MenuChecker)
@@ -198,7 +197,7 @@ function AfterAjax2()
 		UserMessages.MaxLength(30)
 	}
 
-	if (buggness) UserMessages.Write("Testing in progress")
+	//if (buggness) UserMessages.Write("Testing in progress")
 
 
 	if (webkruncherxslt_txt.length < 1)
@@ -266,8 +265,7 @@ function ResetUserMessages()
 {
 	UserMessages.Hide()
 	UserMessages=new MsgTable(GetObject('UserMessages'))
-	//UserMessages.Color("yellow")
-	//UserMessages.Write('Welcome to WebKruncher')
+	buggness=false
 }
 
 var flipped=0

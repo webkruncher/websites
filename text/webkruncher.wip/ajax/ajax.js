@@ -41,7 +41,8 @@ function ajax(xmlname,  target,callback,positioner)
 			GetObject("EntryMsg").innerHTML="Loading the WebKruncher style"
 			this.load('ajax/webkruncher.xslt')
 		} else {
-			if ( UserMessages ) UserMessages.Write( this.xmlname )
+			if ( buggness  ) 
+				if ( UserMessages ) UserMessages.Write( this.xmlname )
 			this.load(this.xmlname)
 		}
 	} catch (e) {

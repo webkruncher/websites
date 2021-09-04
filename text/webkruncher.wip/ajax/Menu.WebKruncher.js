@@ -37,7 +37,7 @@ var CloseTimer=500
 			UserMessages.Write("Sparky works best ");
 			UserMessages.Write("with FireFox");
 			if (MenuMessages) MenuMessages.Write("Meet Sparky")
-			setTimeout("ReWelcome()",5000);
+			//setTimeout("ReWelcome()",5000);
 		}
 		return
 	}
@@ -173,12 +173,12 @@ function MenuLink(o)
 	FocusOn('DeadTarget')
 	if (PageName=='Clear') 
 	{	
-		if (MenuMessages) MenuMessages.Hide()
-		if (MenuMessages) MenuMessages.Clear()
-		if (MenuMessages) MenuMessages.Show()
-		UserMessages.Hide()
-		UserMessages.Clear()
-		UserMessages.Show()
+		//if (MenuMessages) MenuMessages.Hide()
+		//if (MenuMessages) MenuMessages.Clear()
+		//if (MenuMessages) MenuMessages.Show()
+		//UserMessages.Hide()
+		//UserMessages.Clear()
+		//UserMessages.Show()
 		return
 	}
 
@@ -256,7 +256,7 @@ function Skipper()
 			UserMessages.Color("red");
 			UserMessages.Background("blue");
 			buggness=true;
-			setTimeout("ResetUserMessages()",25000);
+			setTimeout("ResetUserMessages()",20);
 		}
 	}
 	if (gy[0]!='')
