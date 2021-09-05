@@ -12,21 +12,23 @@
 			between endpoints.
 		</p>
 		<p>
-			<text>WebKruncher's</text><whitespace />
+			<div style="display:inline">
+			WebKruncher's
+			</div>
 			<div 
 				style="cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
-				onmouseout="this.style.color='black'"
+				onmouseout="this.style.color='green'"
 				onclick="Navigate('Blank','http://github.com/webkruncher/exexml')" >ExeXml Project
 			</div>
 
-			<whitespace />
-			<text>is a pure ISO 14882 (C++ / STL) approach 
-			for digesting XML content. The library is fully contained in 
-			a single header file, and depends only on the 
-			Standard Template Library and a few trivial type 
-			abstraction definitions.
-			</text>
+			<div style="display:inline">
+				is a pure ISO 14882 (C++ / STL) approach 
+				for digesting XML content. The library is fully contained in 
+				a single header file, and depends only on the 
+				Standard Template Library and a few trivial type 
+				abstraction definitions.
+			</div>
 		</p>
 		<p>
 			The project offers a unique, but incredibly flexible 
@@ -40,5 +42,6 @@
 		</p>
 	</Content>
 </Page>
+
 
 

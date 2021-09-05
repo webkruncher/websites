@@ -29,7 +29,16 @@
 				this example
 			</div>
 			<div style="margin:0px;display:inline">
-				serves this site. The 
+				serves 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','https://github.com/webkruncher/websites/tree/master/text/webkruncher')" >this site
+			</div>
+			<div style="margin:0px;display:inline">
+			. The 
 			</div>  
 			<div 
 				style="margin:0px;cursor:pointer;display:inline; color:teal;"
