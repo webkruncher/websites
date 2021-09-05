@@ -16,15 +16,6 @@
 				take request, send response.  Complex, custom business-ware can be built on
 				the basic request / response methods of the basic hypertext protocol.
 			</div>
-			<div style="display:inline">
-				For this service to be useful in the real world, it must be secured.  
-				and while it is completely necessary for any digital service to be 
-				secure, the next goal for this project is desiging the business-ware patterns.   
-				The logic that provides the actual service must remain completely independent, 
-				and agnostic of the security features, and the security components should be 
-				independent, and isolated from the business-ware.  Keeping features
-				isolated from each other paves the way for extensible designs.
-			</div>
 		</p>
 		<p>
 			<div style="display:inline">
@@ -38,8 +29,22 @@
 				this example
 			</div>
 			<div style="margin:0px;display:inline">
-				loads a specific xml file off of the server disk,
-				then uses my own 
+				serves this site. The 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='black'"
+				onclick="Navigate('Leave','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Project
+			</div>
+			<div style="margin:0px;display:inline">
+				library provides the framework, negotiating plain text, and secure sockets,
+				while the user code is simple and easy to use.
+			</div>  
+		</p>
+		<p>
+			<div style="margin:0px;display:inline">
+				My 
 			</div>  
 			<div 
 				style="margin:0px;cursor:pointer;display:inline; color:teal;"
@@ -48,18 +53,16 @@
 				onclick="Navigate('Leave','http://github.com/webkruncher/exexml')" >ExeXml Project
 			</div>
 			<div style="margin:0px;display:inline"> 
-				to apply custom rules to the payload, and
-				sends it back to the user agent.
-				This pattern can do a lot.  Since this is running in a compiled binary
-				on the server, the code has access to the entire system.  This is good, and
-				bad.  The bad news is that you'll need to be very careful.  The good news
-				is that you can do just about anything you want to do with the system.
+				is designed to load xml into a C++ hierarchy, using a factory pattern to 
+				a binding to the xml text, in the form of extensible C++ structures.
+				This is currently not in use in the latest revision of the server.  
 			</div>  
 		</p>
 		<p>	
 			<div style="display:inline">
 				The future of this project will involve support for standard security
-				features, and database connection integrations.
+				features, and database connection integrations, using ExeExml to 
+				bind the data to the service.
 			</div>
 		</p>
 	</Content>
