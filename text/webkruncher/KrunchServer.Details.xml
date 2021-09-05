@@ -24,7 +24,7 @@
 			<div 
 				style="margin:0px;cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
-				onmouseout="this.style.color='black'"
+				onmouseout="this.style.color='green'"
 				onclick="Navigate('KrunchServer.Example')" >
 				this example
 			</div>
@@ -34,8 +34,8 @@
 			<div 
 				style="margin:0px;cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
-				onmouseout="this.style.color='black'"
-				onclick="Navigate('Leave','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Project
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Project
 			</div>
 			<div style="margin:0px;display:inline">
 				library provides the framework, negotiating plain text, and secure sockets,
@@ -49,8 +49,8 @@
 			<div 
 				style="margin:0px;cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
-				onmouseout="this.style.color='black'"
-				onclick="Navigate('Leave','http://github.com/webkruncher/exexml')" >ExeXml Project
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','http://github.com/webkruncher/exexml')" >ExeXml Project
 			</div>
 			<div style="margin:0px;display:inline"> 
 				is designed to load xml into a C++ hierarchy, using a factory pattern to 
@@ -67,4 +67,5 @@
 		</p>
 	</Content>
 </Page>
+
 

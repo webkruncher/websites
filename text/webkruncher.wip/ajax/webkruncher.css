@@ -2,22 +2,22 @@
 
 a:link /* unvisited link */
 {
-	color:black;
+	color:green;
 	margin-right:8px;
 }      
 a:visited /* visited link */
 {
-	color:black;
+	color:teal;
 	margin-right:8px;
 }  
 a:hover /* mouse over link */
 {
-	color:black;
+	color:green;
 	margin-right:8px;
 }  
 a:active /* selected link */
 {
-	color:black;
+	color:green;
 	margin-right:8px;
 }  
 
