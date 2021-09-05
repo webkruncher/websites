@@ -10,7 +10,7 @@
 			<div 
 				style="cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
-				onmouseout="this.style.color='black'"
+				onmouseout="this.style.color='green'"
 				onclick="Navigate('KrunchServer.Details')" >
 				web server
 			</div>.  
