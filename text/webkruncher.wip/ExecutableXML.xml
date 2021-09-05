@@ -17,7 +17,7 @@
 				style="cursor:pointer;display:inline; color:teal;"
 				onmouseover="this.style.color='blue'"
 				onmouseout="this.style.color='black'"
-				onclick="Navigate('Leave','http://github.com/webkruncher/exexml')" >ExeXml Project
+				onclick="Navigate('Blank','http://github.com/webkruncher/exexml')" >ExeXml Project
 			</div>
 
 			<whitespace />
