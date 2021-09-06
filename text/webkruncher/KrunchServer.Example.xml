@@ -4,7 +4,7 @@
 	<t>InfoKruncher Example</t>
 	<Content>
 		<p>	
-			<div style="font-size:5pt;display:inline">
+			<div style="font-size:8pt;display:inline">
 
 			<pre>
 
@@ -41,7 +41,8 @@
 		response &lt;&lt; &quot;Server: TestSite&quot; &lt;&lt; endl;
 		response &lt;&lt; &quot;Connection: close&quot; &lt;&lt; endl;
 		response &lt;&lt; &quot;Content-Length:&quot; &lt;&lt; ss.str().size() &lt;&lt; endl;
-		if ( ! NewCookie.empty() ) response &lt;&lt; &quot;Set-Cookie:&quot; &lt;&lt; CookieName &lt;&lt; &quot;=&quot; &lt;&lt; NewCookie &lt;&lt; &quot;;&quot; &lt;&lt; endl;
+		if ( ! NewCookie.empty() ) 
+			response &lt;&lt; &quot;Set-Cookie:&quot; &lt;&lt; CookieName &lt;&lt; &quot;=&quot; &lt;&lt; NewCookie &lt;&lt; &quot;;&quot; &lt;&lt; endl;
 		response &lt;&lt; endl;
 		response &lt;&lt; ss.str();
 
