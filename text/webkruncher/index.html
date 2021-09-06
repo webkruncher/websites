@@ -127,6 +127,7 @@ function Loader()
 }
 function FlipLoader()
 {
+	GetObject( "DefaultWelcomeMessage" ).innerHTML="Loading content..."
 	setTimeout("Loader()",1000)
 	CrumbNav=GetObject("Bread").Crumbs=new Breadcrumbs(GetObject("BreadLink"))
 }
