@@ -15,7 +15,7 @@ var Diagnostics = null
 var LockDiagnostics = null
 var InitDiagnostics = null
 var UserMessages = null
-var buggness = true;
+var buggness = false;
 var AlertLimiter = 1 
 var StartedApplicationAt=new Date()
 var ConnectionStatus = true
@@ -317,6 +317,8 @@ function CloseLoader()
 
 function BackFlip() 
 {
+	document.body.setAttribute("style", "display:none" )
+	GetObject("RootNode").innerHTML=""
 	GetObject("EntryMsg").innerHTML="Initializing."
 	InitializeAjax()
 	setTimeout('AfterFlip()',100)

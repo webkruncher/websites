@@ -139,10 +139,11 @@ function Navigate(PageName,external,popupname,popupfeatures,path)
 		{
 			if (!webkruncherxslt) 
 			{
-				if (buggness) UserMessages.Write("No page xslt yet");
+				//if (buggness) UserMessages.Write("No page xslt yet");
 				BackFlip()
 				return;
-			}
+			} else 
+				document.body.setAttribute("style", "display:inline" )
 			cb="LoadedPage("+targetNode+")";
 			pn="";
 			if (path) pn=path;
@@ -287,7 +288,7 @@ function LoadLeftMenu()
 	if (!webkruncherxslt) 
 	{
 		if (buggness) UserMessages.Write("No xslt yet");
-		setTimeout("LoadLeftMenu()",300);
+		BackFlip()
 		return;
 	}
 	DynamicMenuRootNodePosition = new NodePosition(10,250,00,00);
