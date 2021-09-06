@@ -170,16 +170,9 @@ function MenuLink(o)
 	PageName=o.getAttribute('pagename')
 	if (MenuMessages) MenuMessages.Write('Clicked '+PageName+" id="+o.id)
 	o.Clicked(o)
-	//crumbs.Write(o.text)
 	FocusOn('DeadTarget')
 	if (PageName=='Clear') 
 	{	
-		//if (MenuMessages) MenuMessages.Hide()
-		//if (MenuMessages) MenuMessages.Clear()
-		//if (MenuMessages) MenuMessages.Show()
-		//UserMessages.Hide()
-		//UserMessages.Clear()
-		//UserMessages.Show()
 		return
 	}
 

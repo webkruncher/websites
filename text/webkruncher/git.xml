@@ -25,28 +25,35 @@
 					style="padding-left:20px;cursor:pointer;display:inline; color:teal;"
 					onmouseover="this.style.color='blue'"
 					onmouseout="this.style.color='black'"
-					onclick="Navigate('Leave','http://github.com/webkruncher/exexml')" >ExeXml Project
+					onclick="Navigate('Blank','http://github.com/webkruncher/exexml')" >ExeXml Project
 				</div>
 				<br />
 				<div 
 					style="padding-left:20px;cursor:pointer;display:inline; color:teal;"
 					onmouseover="this.style.color='blue'"
 					onmouseout="this.style.color='black'"
-					onclick="Navigate('Leave','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Web Server
+					onclick="Navigate('Blank','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Web Server
 				</div>
 				<br />
 				<div 
 					style="padding-left:20px;cursor:pointer;display:inline; color:teal;"
 					onmouseover="this.style.color='blue'"
 					onmouseout="this.style.color='black'"
-					onclick="Navigate('Leave','http://github.com/webkruncher/x11grid')" >X11Grid
+					onclick="Navigate('Blank','https://github.com/webkruncher/webkruncher')" >This service
 				</div>
 				<br />
 				<div 
 					style="padding-left:20px;cursor:pointer;display:inline; color:teal;"
 					onmouseover="this.style.color='blue'"
 					onmouseout="this.style.color='black'"
-					onclick="Navigate('Leave','http://github.com/webkruncher/xlife')" >XLife
+					onclick="Navigate('Blank','http://github.com/webkruncher/testfactory')" >TestFactory
+				</div>
+				<br />
+				<div 
+					style="padding-left:20px;cursor:pointer;display:inline; color:teal;"
+					onmouseover="this.style.color='blue'"
+					onmouseout="this.style.color='black'"
+					onclick="Navigate('Blank','https://github.com/webkruncher/websites/tree/master/text/webkruncher')" >This Ajax Site
 				</div>
 			</div>
 			</div>
