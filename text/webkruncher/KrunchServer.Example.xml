@@ -10,7 +10,7 @@
 
 	string TestSite::LoadResponse( Responder&amp; r  )
 	{
-		int status( 401 );
+		int status( 400 );
 
 		stringstream ss;
 
