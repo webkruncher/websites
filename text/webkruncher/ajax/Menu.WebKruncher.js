@@ -143,7 +143,7 @@ function Navigate(PageName,external,popupname,popupfeatures,path)
 				BackFlip()
 				return;
 			} else 
-				document.body.setAttribute("style", "display:inline" )
+				document.body.setAttribute("style", "display:inline;background:#DDDDDD" )
 			cb="LoadedPage("+targetNode+")";
 			pn="";
 			if (path) pn=path;
