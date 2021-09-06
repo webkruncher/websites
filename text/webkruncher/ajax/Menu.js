@@ -88,7 +88,6 @@ function DivObject(doMenuRoot,Parking,root,name,id,parent,where,callback)
 		n=Myself.Clone
 		style="display:none;"
 		n.setAttribute('style',style)
-if (buggness) UserMessages.Write("Testing ajax");
 		new ajax(this.doMenuRoot+this.name+".xml",this.Clone,
 			function() { Myself.Finishing() }
 			,null
