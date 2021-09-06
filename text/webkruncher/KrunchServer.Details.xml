@@ -64,7 +64,7 @@
 			<div style="margin:0px;display:inline"> 
 				is designed to load xml into a C++ hierarchy, using a factory pattern to 
 				a binding to the xml text, in the form of extensible C++ structures.
-				This is currently not in use in the latest revision of the server.  
+				The server uses ExeXml to load the configuration xml.
 			</div>  
 		</p>
 		<p>	
