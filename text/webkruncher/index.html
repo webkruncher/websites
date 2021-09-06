@@ -114,9 +114,6 @@ function Loader()
 	try{new ActiveXObject("Msxml2.XMLHTTP");substandard=true;}catch(e){};
 	try{new ActiveXObject("Microsoft.XMLHTTP");substandard=true;}catch(e){}
 
-	//substandard=true
-	//substandard=false
-
 	if (substandard) 
 	{
 		SubStandard(); 
@@ -128,14 +125,10 @@ function Loader()
 	o=GetObject("WelcomeDiv")
 	o.style.display="none"
 	BackFlip()
-	//o=GetObject("Footer")
-	//o.setAttribute("style","display:inline; position:absolute;top:800px;left:0px;")
-	//o.style.zIndex=100;
-	//o.style.display="inline";
 }
 function FlipLoader()
 {
-	setTimeout("Loader()",100)
+	setTimeout("Loader()",1000)
 	CrumbNav=GetObject("Bread").Crumbs=new Breadcrumbs(GetObject("BreadLink"))
 }
 window.onload=FlipLoader

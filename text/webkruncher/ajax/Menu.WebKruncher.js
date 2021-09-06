@@ -140,7 +140,7 @@ function Navigate(PageName,external,popupname,popupfeatures,path)
 			if (!webkruncherxslt) 
 			{
 				if (buggness) UserMessages.Write("No page xslt yet");
-				setTimeout("Navigate('"+PageName+"',null,null,null,path)",300);
+				BackFlip()
 				return;
 			}
 			cb="LoadedPage("+targetNode+")";
