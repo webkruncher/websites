@@ -1,0 +1,10 @@
+
+<Page name="Home">
+	<t>Home</t>
+	<Content>
+		<p> 
+			Authroized personel only beyond this point
+		</p>
+	</Content>
+</Page>
+

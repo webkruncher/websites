@@ -1,0 +1,79 @@
+
+
+<Page name="KrunchServer.Details">
+	<t>InfoKruncher Details</t>
+	<Content>
+		<p>	
+			The InformationKruncher is a work in progress.   The server has a 
+			tiny footprint, and can be configured to spawn any number of 
+			processes and any number of threads per process.  The 
+			source code is designed to be completely minimalistic, and
+			fully exstensible.
+		</p>
+		<p>	
+			<div style="display:inline">
+				The basic service is designed to extend forever, but it starts out simple; 
+				take request, send response.  Complex, custom business-ware can be built on
+				the basic request / response methods of the basic hypertext protocol.
+			</div>
+		</p>
+		<p>
+			<div style="display:inline">
+				To demonstrate the concept, 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('KrunchServer.Example')" >
+				this example
+			</div>
+			<div style="margin:0px;display:inline">
+				serves 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','https://github.com/webkruncher/websites/tree/master/text/webkruncher')" >this site
+			</div>
+			<div style="margin:0px;display:inline">
+			. The 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','http://github.com/webkruncher/informationkruncher')" >Information Kruncher Project
+			</div>
+			<div style="margin:0px;display:inline">
+				library provides the framework, negotiating plain text, and secure sockets,
+				while the user code is simple and easy to use.
+			</div>  
+		</p>
+		<p>
+			<div style="margin:0px;display:inline">
+				My 
+			</div>  
+			<div 
+				style="margin:0px;cursor:pointer;display:inline; color:teal;"
+				onmouseover="this.style.color='blue'"
+				onmouseout="this.style.color='green'"
+				onclick="Navigate('Blank','http://github.com/webkruncher/exexml')" >ExeXml Project
+			</div>
+			<div style="margin:0px;display:inline"> 
+				is designed to load xml into a C++ hierarchy, using a factory pattern to 
+				a binding to the xml text, in the form of extensible C++ structures.
+				The server uses ExeXml to load the configuration xml.
+			</div>  
+		</p>
+		<p>	
+			<div style="display:inline">
+				The future of this project will involve support for standard security
+				features, and database connection integrations, using ExeExml to 
+				bind the data to the service.
+			</div>
+		</p>
+	</Content>
+</Page>
+

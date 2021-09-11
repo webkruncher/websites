@@ -50,5 +50,20 @@
 			</site>
 		</filter>	
 	</domain>
+
+	<domain 
+		name="jackmthompson.ninja"
+		path="/home/jmt/websites/text/infodb/"
+	>
+		<filter
+			hostname="jackmthompson.ninja"
+		>
+			<data
+				protocol="http"
+				port="8080"
+			/>
+		</filter>
+
+	</domain>
 </root>
 

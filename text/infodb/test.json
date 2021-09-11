@@ -1,0 +1,13 @@
+
+
+{
+	"FirstLabel" : "FirstValue",
+	"SecondLabel" : "SecondValue",
+	"ArrayInRoot" : [ "FirstElement", "SecondElement" , 9999, 0] ,
+	"sub" : 
+	{
+		"subjsonname" : "subvalue",
+		"subjsonname2" : "subvalue2",
+		"subary" : [ "suba", "subb" ] 
+	}
+}

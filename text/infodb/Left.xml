@@ -1,0 +1,20 @@
+
+<Left type="rootmenu" >
+	<item>
+		<name></name>
+		<item>
+			<name></name><text>Main</text>
+			<item><clicked>Navigate("Home")</clicked><name>Home</name><text>Home</text></item>
+		</item>
+		<item>
+			<name>Contact</name><text>Contact</text>
+			<item>
+				<name>Linked In</name><text>Linked In</text>
+				<clicked>Navigate("Contactlinkedin")</clicked>
+			</item>
+		</item>
+		<!-- login  -->
+	</item>
+</Left>
+
+

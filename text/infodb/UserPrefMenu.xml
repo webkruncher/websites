@@ -1,0 +1,16 @@
+
+
+
+	<item>
+		<name>User</name><text></text>
+		<item>
+			<item>
+				<name>User</name><text>Profile</text>
+				<clicked>Navigate("UserPreferences")</clicked>
+			</item>
+		</item>
+	</item>
+
+
+
+

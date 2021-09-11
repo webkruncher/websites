@@ -1,0 +1,59 @@
+
+
+<Page name="KrunchServer.Example">
+	<t>InfoKruncher Example</t>
+	<Content>
+		<p>	
+			<div style="font-size:8pt;display:inline">
+
+			<pre>
+
+	string TestSite::LoadResponse( Responder&amp; r  )
+	{
+		int status( 400 );
+
+		stringstream ss;
+
+		const string contenttype(Hyper::ContentType( r.uri ));
+
+		const string filename( r.options.path + r.uri );
+
+		LoadFile(filename.c_str(), ss);
+		if ( ss.str().size() ) status=200;
+
+
+		const string ExistingCookie( Hyper::mimevalue( r.headers, &quot;cookie&quot; ) );
+		const string CookieName(&quot;webkruncher.com&quot;);
+
+		string NewCookie;
+
+		if ( ExistingCookie.empty() )
+		{
+			NewCookie=KruncherTools::GetUuid();
+			{stringstream ssl; ssl&lt;&lt;&quot;Created uuid:&quot; &lt;&lt; NewCookie; Log( ssl.str() );}
+		}
+
+
+		stringstream response;
+		response &lt;&lt; &quot;HTTP/1.1 &quot;;
+		response &lt;&lt; status &lt;&lt; &quot; &quot; &lt;&lt; Hyper::statusText(status) &lt;&lt; endl;
+		response &lt;&lt; &quot;Content-Type: &quot; &lt;&lt; contenttype &lt;&lt; endl;
+		response &lt;&lt; &quot;Server: TestSite&quot; &lt;&lt; endl;
+		response &lt;&lt; &quot;Connection: close&quot; &lt;&lt; endl;
+		response &lt;&lt; &quot;Content-Length:&quot; &lt;&lt; ss.str().size() &lt;&lt; endl;
+		if ( ! NewCookie.empty() ) 
+			response &lt;&lt; &quot;Set-Cookie:&quot; &lt;&lt; CookieName &lt;&lt; &quot;=&quot; &lt;&lt; NewCookie &lt;&lt; &quot;;&quot; &lt;&lt; endl;
+		response &lt;&lt; endl;
+		response &lt;&lt; ss.str();
+
+		string s( response.str() );
+		return s;
+	}
+
+			</pre>
+			</div>
+		</p>
+	</Content>
+</Page>
+
+

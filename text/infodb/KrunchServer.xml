@@ -1,0 +1,36 @@
+
+<Page name="KrunchServer">
+	<t>Krunch Server</t>
+	<Content>
+	<p>
+		This site is powered by the InformationKruncher's KrunchServer.  The goal of this project is 
+		to design a service that meets the following criteria:
+		<li>Built purely using international standards</li>
+		<li>Is extensible</li>
+		<li>Is fault tolerant, and secure</li>
+		<li>Works the same in every <b>standard</b> operating environment</li>
+		<li>Must be legible, and designed to accomadate the needs of any competent computer programmer.</li>
+	</p>
+		<p><hr /></p>
+
+	<p>
+		Certain features found in many mainstream product lines, that are not a goal of the KrunchServer include, but are not limited to:
+		<li>Ability to work with systems that are designed to be incompatible with international standards</li>
+		<li>Methods to promote any sinkhole of support</li>
+		<li>Techniques to hobble the product, or cause it to be dysfunctional in support of forced upgrades or other sales efforts</li>
+	</p>
+
+	<p>
+		<div style="display:inline">
+			All of the source code for the server can be found in the
+		</div>  
+		<div 
+			style="margin:0px;margin-right:0px;cursor:pointer;display:inline; color:teal;"
+			onmouseover="this.style.color='blue'"
+			onmouseout="this.style.color='green'"
+			onclick="Navigate('Blank','http://github.com/webkruncher')" >WebKruncher's GitHub Repositories
+		</div><div style="margin:0px;margin-left:0px;display:inline">.</div>  
+	</p>
+	</Content>
+</Page>
+
