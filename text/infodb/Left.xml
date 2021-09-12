@@ -6,7 +6,9 @@
 			<name></name><text>Main</text>
 			<item><clicked>Navigate("Home")</clicked><name>Home</name><text>Home</text></item>
 		</item>
-		<!-- DataMenu -->
+		<item role="admin,user" >
+			<name>DB</name><text>DB</text>
+		</item>
 		<item>
 			<name>Contact</name><text>Contact</text>
 			<item>

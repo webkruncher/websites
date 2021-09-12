@@ -61,7 +61,15 @@
 			<data
 				protocol="http"
 				port="8080"
-			/>
+			>
+			<roles>
+				<user
+					name="jmt"
+					ipaddr="73.201.184.88"
+					role="admin,user"
+				/>
+			</roles>
+			</data>
 		</filter>
 
 	</domain>

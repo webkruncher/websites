@@ -1,9 +1,14 @@
 
 <Page name="Home">
 	<t>Home</t>
-	<Content>
+	<Content role="" >
 		<p> 
 			Authroized personel only beyond this point
+		</p>
+	</Content>
+	<Content role="admin,user" >
+		<p> 
+			WIP
 		</p>
 	</Content>
 </Page>
