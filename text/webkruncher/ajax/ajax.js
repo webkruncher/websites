@@ -121,6 +121,11 @@ ajax.prototype.load = function (url)
 				reqnode.StatusChange(url,reqnode.httpRequest)
 				if (reqnode.httpRequest.readyState == 4) 
 				{
+					if (reqnode.httpRequest.status == 422) 
+					{
+						document.location="/index.html"
+						return
+					}
 					if (reqnode.httpRequest.status != 200) 
 					{
 						if (buggness) UserMessages.Write( this.url + " status " + reqnode.httpRequest.status )
