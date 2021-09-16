@@ -325,6 +325,14 @@ function BackFlip()
 }
 
 
+function Login( form )
+{
+	f=GetObject( form )
+	UserName=f.elements[ "UserName" ].value 
+	Password=f.elements[ "Password" ].value 
+	return false
+}
+
 
 
 

@@ -8,7 +8,21 @@
 	</Content>
 	<Content role="admin,user" >
 		<p> 
-			WIP
+			Login:
+		</p>
+		<p>
+			<form id="LoginForm" >
+				<table>
+					<tr><td>User name:</td><td><input name="UserName" /> </td></tr>
+					<tr><td>Password:</td><td><input type="password" name="Password" /> </td></tr>
+					<tr><td></td><td>
+						<input type="button"
+							value="Login"
+							onclick="javascript:Login( 'LoginForm'  )"
+						/>
+					</td></tr>
+				</table>
+			</form>
 		</p>
 	</Content>
 </Page>
