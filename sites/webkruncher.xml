@@ -2,73 +2,25 @@
 
 <root>
 	<domain 
-		name="webkruncher.com"
-		path="/home/jmt/websites/text/webkruncher/"
+		name="jackmthompson.ninja"
 	>
 		<filter
-			hostname="webkruncher.com"
+			hostname="jackmthompson.ninja"
 		>
 			<site
+				path="/home/jmt/websites/text/webkruncher/"
 				protocol="http"
 				port="80"
-			/>
-
-			<site
+			>
+			</site>
+			<data
+				path="/home/jmt/websites/text/jackmthompson.ninja/"
 				protocol="https"
 				port="443"
 				passwordfile="/etc/webkruncher.pwd"
-				certfile="/home/jmt/websites/certs/webkruncher/WEBKRUNCHER.COM.crt"
-				keyfile="/home/jmt/websites/certs/webkruncher/server.key"
-			>
-			</site>
-		</filter>	
-	</domain>
-
-	<domain 
-		name="jackmthompson.ninja"
-		path="/home/jmt/websites/text/webkruncher/"
-	>
-		<filter
-			hostname="jackmthompson.ninja"
-		>
-			<site
-				protocol="http"
-				port="80"
-			>
-				<roles>
-					<user
-						name="jmt"
-						ipaddr="73.201.184.88"
-						role="admin,user"
-					/>
-				</roles>
-			</site>
-		</filter>
-
-		<filter
-			hostname="XX jackmthompson.ninja"
-		>
-			<site
-				protocol="https"
-				port="443"
-				passwordfile="/etc/jackmthompson_ninja.pwd"
-				certfile="/home/jmt/websites/certs/webkruncher/JACKMTHOMPSON.NINJA.crt"
-				keyfile="/home/jmt/websites/certs/webkruncher/server.key"
-			>
-			</site>
-		</filter>	
-	</domain>
-
-	<domain 
-		name="jackmthompson.ninja"
-		path="/home/jmt/websites/text/infodb/"
-	>
-		<filter
-			hostname="jackmthompson.ninja"
-		>
-			<data
-				protocol="http"
-				port="8080"
+				certfile="/etc/certs/jackmthompson.ninja/JACKMTHOMPSON.NINJA.crt"
+				keyfile="/etc/certs/jackmthompson.ninja/server.key"
+				cafile="/etc/ssl/cert.pem"
 			>
 				<roles>
 					<user

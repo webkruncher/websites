@@ -5,6 +5,7 @@ function MsgCache(txt)
 
 function MsgTable (roottr)
 {
+	this.fontsize="10px";
 	this.textcolor="silver";
 	this.backgroundcolor="";
 	this.roottr=roottr;
@@ -36,7 +37,8 @@ function MsgTable (roottr)
 		d.setAttribute("class","UserMessageText")
 		style="";
 		if (this.backgroundcolor!="") style+="background:"+this.backgroundcolor+";"
-		if (this.backgroundcolor!="") style+="color:"+this.textcolor+";"
+		if (this.textcolor!="") style+="color:"+this.textcolor+";"
+		if (this.fontsize!="") style+="font-size:"+this.fontsize+";"
 		d.setAttribute("style",style);
 		m=document.createTextNode(txt);
 		this.lasttextnode=m
@@ -48,6 +50,10 @@ function MsgTable (roottr)
 	}
 
 
+	this.FontSize = function(c)
+	{
+		this.fontsize=c;
+	}
 	this.Color = function(c)
 	{
 		this.textcolor=c;

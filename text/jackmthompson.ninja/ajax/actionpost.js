@@ -57,7 +57,7 @@ actionpost.prototype.load = function ()
 		if (this.httpRequest != null) 
 		{
 			var reqnode = this;
-			this.httpRequest.open('GET', this.url, true);
+			this.httpRequest.open('POST', this.url, true);
 			this.httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			this.httpRequest.setRequestHeader("Connection", "close");
 			this.httpRequest.onreadystatechange = function () 
@@ -111,6 +111,7 @@ function postscrubber()
 {
 	this.scrub=function(who,what)
 	{
+		//if ( buggness ) UserMessages.Write( what.nodeName )
 		if(what.nodeName=="INPUT") this.addnode(who,what)
 		for (this.i=0;this.i<what.childNodes.length;this.i++)
 		{

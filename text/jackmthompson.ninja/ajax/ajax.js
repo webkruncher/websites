@@ -156,7 +156,8 @@ ajax.prototype.load = function (url)
 								ajax(this.xmlname,  this.target,this.callback,this.positioner) 
 								return ;
 							}
-							reqnode.target.appendChild(reqnode.transformed)
+							if  ( reqnode.target ) 
+								reqnode.target.appendChild(reqnode.transformed)
 							if (reqnode.callback) setTimeout(reqnode.callback,10)
 							//if (reqnode.callback) reqnode.callback(reqnode.transformed)
 						}

@@ -93,7 +93,7 @@ function LoginPage(PageName,external,popupname,popupfeatures,path)
 	GetObject("LoginPage").setAttribute("style","display:inline")
 }
 
-function Navigate(PageName,external,popupname,popupfeatures,path)
+function Navigate(PageName,external,popupname,popupfeatures,path,option)
 {
 	//UserMessages.Write( PageName )
 	GetObject("Bread").Crumbs.Navigate(PageName)
@@ -113,6 +113,28 @@ function Navigate(PageName,external,popupname,popupfeatures,path)
 	//Diagnostics.Write("Navigating to "+PageName)
 	cell=GetObject('Pages')
 	targetNode=-1
+
+	if ( option == "Reset" )
+	{
+		if ( buggness  ) 
+			if ( UserMessages ) UserMessages.Write( "Reloading " + PageName )
+		for ( ij=0; ij < cell.childNodes.length;ij++) 
+		{
+			try
+			{
+				testname=cell.childNodes[ij].getAttribute('pagename')
+				if (testname == PageName)
+				{
+					cell.childNodes[ ij ].innerHTML=""
+					return cell.childNodes[ ij ];
+				}
+			} catch (err) {
+				Whatever("Error: "+err)
+			}
+		}
+
+	}
+	
 	for ( ij=0; ij < cell.childNodes.length;ij++) 
 	{
 		try

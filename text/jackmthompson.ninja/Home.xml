@@ -13,10 +13,10 @@
 		<p>
 			<form id="LoginForm" >
 				<table>
-					<tr><td>User name:</td><td><input name="UserName" /> </td></tr>
-					<tr><td>Password:</td><td><input type="password" name="Password" /> </td></tr>
+					<tr><td>User name:</td><td><INPUT name="UserName" value="test" /> </td></tr>
+					<tr><td>Password:</td><td><INPUT type="password" name="Password" value="none" /> </td></tr>
 					<tr><td></td><td>
-						<input type="button"
+						<input type="button" name="Submit"
 							value="Login"
 							onclick="javascript:Login( 'LoginForm'  )"
 						/>

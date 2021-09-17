@@ -186,13 +186,14 @@ function AfterAjax2()
 
 	MenuChecker=setInterval("MenuCheck()",100);
 
-	if (!UserMessages)
+//	if (!UserMessages)
 	{
 		UserMessages=new MsgTable(GetObject('UserMessages'))
-		if (buggness) 
+//		if (buggness) 
 		{
-			//UserMessages.Color("yellow");
-			//UserMessages.Background("black");
+			UserMessages.Color("yellow");
+			UserMessages.Background("black");
+			UserMessages.FontSize("12px");
 		}
 		UserMessages.MaxLength(30)
 	}
@@ -242,7 +243,7 @@ function AfterAjax2()
 	UserMessages.Write("Welcome to WebKruncher")
 	LoadDynamicMenu()
 	FocusOn('DeadTarget')
-	if (buggness) setTimeout("ResetUserMessages()",5000);
+//	if (buggness) setTimeout("ResetUserMessages()",5000);
 }
 
 function LogoAnimator()
@@ -263,6 +264,7 @@ function LogoAnimator()
 
 function ResetUserMessages()
 {
+alert( "ResetUserMessages" )
 	UserMessages.Hide()
 	UserMessages=new MsgTable(GetObject('UserMessages'))
 	buggness=false
@@ -307,6 +309,7 @@ function LoadError(msg)
 {
 	GetObject("ErrorLoadMsg").setAttribute("style","display:block; float:right;color:red")
 	GetObject("ErrorLoadMsg").innerHTML=msg
+	Navigate( "Home", "", "", "", "", "Reload" )
 }
 
 function CloseLoader()
@@ -324,12 +327,21 @@ function BackFlip()
 	setTimeout('AfterFlip()',100)
 }
 
+function LoggedIn()
+{
+	alert( "LoggedIn" )
+}
+
 
 function Login( form )
 {
 	f=GetObject( form )
 	UserName=f.elements[ "UserName" ].value 
 	Password=f.elements[ "Password" ].value 
+	target=Navigate( "Home", "", "", "", "", "Reset" )
+	target.setAttribute('style','display:block;')
+	target.innerHTML="WIP"
+	PostThisForm( "/Home.xml", f, "Login" )
 	return false
 }
 
