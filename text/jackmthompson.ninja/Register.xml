@@ -18,7 +18,7 @@
 					<tr><td></td><td>
 						<input type="button" name="Submit"
 							value="Register"
-							onclick="javascript:Register( 'RegistrationForm'  )"
+							onclick="javascript:PostForm( 'Register', 'Register', 'RegistrationForm'  )"
 						/>
 					</td></tr>
 				</table>
