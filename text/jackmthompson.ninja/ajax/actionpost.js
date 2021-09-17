@@ -36,9 +36,9 @@ function PostThisForm(how,form,nest, callback, target)
 	return false;
 }
 
-function PostedForm( status )
+function PostedForm( action, status )
 {
-	if ( buggness ) UserMessages.Write( "Status: " + parseInt( status ) )
+	if ( buggness ) UserMessages.Write( action + ": " + parseInt( status ) )
 }
 
 function PostForm( Page, Action, form )
@@ -47,7 +47,7 @@ function PostForm( Page, Action, form )
 	target=Navigate( Page, "", "", "", "", "Reset" )
 	target.setAttribute('style','display:block;')
 	target.innerHTML=""
-	PostThisForm( "/" + Page + ".xml", f, Action, "PostedForm( reqnode.httpRequest.status )", target )
+	PostThisForm( "/" + Page + ".xml", f, Action, "PostedForm( \"" + Action + "\", reqnode.httpRequest.status )", target )
 	return false
 }
 
