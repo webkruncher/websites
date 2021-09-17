@@ -329,7 +329,7 @@ function BackFlip()
 
 function LogginAttempted( status )
 {
-	if ( buggness ) UserMessages.Write( "Login failed, status: " + parseInt( status ) )
+	if ( buggness ) UserMessages.Write( "Login status: " + parseInt( status ) )
 }
 
 
