@@ -327,10 +327,6 @@ function BackFlip()
 	setTimeout('AfterFlip()',100)
 }
 
-function LogginAttempted( status )
-{
-	if ( buggness ) UserMessages.Write( "Login status: " + parseInt( status ) )
-}
 
 
 function PostThisForm(how,form,nest, callback, target)
@@ -344,9 +340,13 @@ function PostThisForm(how,form,nest, callback, target)
 	for (this.n=this.parts.length-1;this.n>=0;this.n--)
 		this.what+="</"+this.parts[this.n]+">\n"
 	this.what+="\n</form>"
-	//new actionpost(how,this.what,form, callback)
 	new ajax( how, target,  callback, null, this.what )
 	return false;
+}
+
+function LogginAttempted( status )
+{
+	if ( buggness ) UserMessages.Write( "Login status: " + parseInt( status ) )
 }
 
 function Login( form )
@@ -358,6 +358,26 @@ function Login( form )
 	target.setAttribute('style','display:block;')
 	target.innerHTML=""
 	PostThisForm( "/Home.xml", f, "Login", "LogginAttempted( reqnode.httpRequest.status )", target )
+	return false
+}
+
+
+
+
+function RegistrationAttempted( status )
+{
+	if ( buggness ) UserMessages.Write( "Registration status: " + parseInt( status ) )
+}
+
+function Register( form )
+{
+	f=GetObject( form )
+	UserName=f.elements[ "UserName" ].value 
+	Password=f.elements[ "Password" ].value 
+	target=Navigate( "Register", "", "", "", "", "Reset" )
+	target.setAttribute('style','display:block;')
+	target.innerHTML=""
+	PostThisForm( "/Register.xml", f, "Register", "RegistrationAttempted( reqnode.httpRequest.status )", target )
 	return false
 }
 

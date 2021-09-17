@@ -1,0 +1,29 @@
+
+<Page name="Home">
+	<t>Home</t>
+	<Content role="" >
+		<p> 
+			Registration is restricted
+		</p>
+	</Content>
+	<Content role="user" >
+		<p> 
+			Register:
+		</p>
+		<p>
+			<form id="RegistrationForm" >
+				<table>
+					<tr><td>User name:</td><td><INPUT name="UserName" /> </td></tr>
+					<tr><td>Password:</td><td><INPUT type="password" name="Password" /> </td></tr>
+					<tr><td></td><td>
+						<input type="button" name="Submit"
+							value="Register"
+							onclick="javascript:Register( 'RegistrationForm'  )"
+						/>
+					</td></tr>
+				</table>
+			</form>
+		</p>
+	</Content>
+</Page>
+
