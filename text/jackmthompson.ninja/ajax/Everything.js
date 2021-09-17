@@ -327,11 +327,27 @@ function BackFlip()
 	setTimeout('AfterFlip()',100)
 }
 
-function LoggedIn()
+function LogginAttempted( status )
 {
-	alert( "LoggedIn" )
+	if ( buggness ) UserMessages.Write( "Login failed, status: " + parseInt( status ) )
 }
 
+
+function PostThisForm(how,form,nest, callback, target)
+{
+	this.parts=nest.split("/");
+	this.what="<form>\n"
+	for (this.n=0;this.n<this.parts.length;this.n++)
+		this.what+="<"+this.parts[this.n]+">\n"
+	this.ps=new postscrubber();
+	this.ps.scrub(this,form);
+	for (this.n=this.parts.length-1;this.n>=0;this.n--)
+		this.what+="</"+this.parts[this.n]+">\n"
+	this.what+="\n</form>"
+	//new actionpost(how,this.what,form, callback)
+	new ajax( how, target,  callback, null, this.what )
+	return false;
+}
 
 function Login( form )
 {
@@ -340,8 +356,8 @@ function Login( form )
 	Password=f.elements[ "Password" ].value 
 	target=Navigate( "Home", "", "", "", "", "Reset" )
 	target.setAttribute('style','display:block;')
-	target.innerHTML="WIP"
-	PostThisForm( "/Home.xml", f, "Login" )
+	target.innerHTML=""
+	PostThisForm( "/Home.xml", f, "Login", "LogginAttempted( reqnode.httpRequest.status )", target )
 	return false
 }
 

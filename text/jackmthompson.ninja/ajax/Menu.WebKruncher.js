@@ -63,7 +63,7 @@ function LoadedPage(target)
 	//Diagnostics.MaxLength(20)
 	this.sc=new scrub(GetObject('Pages').childNodes[target])
 	this.sc.go()
-	//UserMessages.Write("Loaded " + target)
+	UserMessages.Write("Loaded " + target)
 	CrumbNav.Buttons(target)
 }
 
@@ -161,7 +161,7 @@ function Navigate(PageName,external,popupname,popupfeatures,path,option)
 		{
 			if (!webkruncherxslt) 
 			{
-				//if (buggness) UserMessages.Write("No page xslt yet");
+				if (buggness) UserMessages.Write("No page xslt yet");
 				BackFlip()
 				return;
 			} else 

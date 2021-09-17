@@ -21,7 +21,7 @@ function callInProgress(xmlhttp)
 
 
 
-function ajax(xmlname,  target,callback,positioner) 
+function ajax(xmlname,target,callback,positioner,apost=null) 
 {
 	try
 	{
@@ -30,6 +30,7 @@ function ajax(xmlname,  target,callback,positioner)
 		this.target = target;
 		this.callback=callback
 		this.positioner=positioner
+		this.apost=apost
 		//LoadProgress("Generating request")
 		this.httpRequest = new XMLHttpRequest(); 
 		//LoadProgress("Getting " + this.xmlname)
@@ -39,11 +40,11 @@ function ajax(xmlname,  target,callback,positioner)
 		{
 			this.cachexslt=true;
 			GetObject("EntryMsg").innerHTML="Loading the WebKruncher style"
-			this.load('ajax/webkruncher.xslt')
+			this.load('ajax/webkruncher.xslt', this.apost)
 		} else {
 			if ( buggness  ) 
 				if ( UserMessages ) UserMessages.Write( this.xmlname )
-			this.load(this.xmlname)
+			this.load(this.xmlname, this.apost)
 		}
 	} catch (e) {
 		LoadError("Cannot Ajax.")
@@ -100,7 +101,7 @@ ajax.prototype.StatusChange = function (url,reqobj)
 	}
 }
 
-ajax.prototype.load = function (url)
+ajax.prototype.load = function (url, apost)
 {
 
 	//LoadProgress("Getting " + url)
@@ -109,7 +110,13 @@ ajax.prototype.load = function (url)
 		if (this.httpRequest != null) 
 		{
 			var reqnode = this;
-			this.httpRequest.open('get', url, true);
+			if ( apost==null ) 
+			{
+				this.httpRequest.open('get', url, true);
+			} else {
+				this.httpRequest.open('post', url, true);
+				this.httpRequest.setRequestHeader("Content-length", apost.length);
+			}
 			this.httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			this.httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	//		this.httpRequest.setRequestHeader("Content-length", params.length);
@@ -128,7 +135,7 @@ ajax.prototype.load = function (url)
 					}
 					if (reqnode.httpRequest.status != 200) 
 					{
-						if (buggness) UserMessages.Write( this.url + " status " + reqnode.httpRequest.status )
+						if (buggness) UserMessages.Write( url + " status " + reqnode.httpRequest.status )
 					}
 					if (reqnode.cachexslt)
 					{
@@ -140,11 +147,11 @@ ajax.prototype.load = function (url)
 					reqnode.xml = reqnode.httpRequest.responseXML;
 					if (this.xmlname == "unused_ping.xml") 
 					{
-						if (reqnode.callback) reqnode.callback()
+						if (reqnode.callback) reqnode.callback( reqnode.httpRequest.status )
 					} else {
 						if (reqnode.httpRequest.responseText.length < 1)
 						{ 
-							this.httpRequest.send(null)
+							this.httpRequest.send(apost)
 						} else {
 							reqnode.xform();
 							if (reqnode.positioner) 
@@ -158,13 +165,23 @@ ajax.prototype.load = function (url)
 							}
 							if  ( reqnode.target ) 
 								reqnode.target.appendChild(reqnode.transformed)
-							if (reqnode.callback) setTimeout(reqnode.callback,10)
-							//if (reqnode.callback) reqnode.callback(reqnode.transformed)
+							if (reqnode.callback) 
+							{
+								if ( typeof( reqnode.callback ) == "function" ) 
+								{
+									setTimeout(reqnode.callback,10)
+								} else  {
+									if ( typeof( reqnode.callback ) == "string" )
+									{
+										eval( reqnode.callback )
+									}
+								}
+							}
 						}
 					}
 				}
 			};
-			this.httpRequest.send(null);
+			this.httpRequest.send(apost);
 		}
 	} catch (e) {
 		AjaxFailure(e)

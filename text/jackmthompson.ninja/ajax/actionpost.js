@@ -1,10 +1,11 @@
 
-function actionpost(url,apost,target)
+function actionpost(url,apost,target, callback)
 {
 	try
 	{
 		this.url=url;
 		this.target=target;
+		this.callback=callback
 		this.apost=apost
 		this.httpRequest=this.getXMLHttpRequest () 
 		this.httpRequest.async = true
@@ -67,11 +68,12 @@ actionpost.prototype.load = function ()
 				{
 					if (reqnode.httpRequest.status != 200) 
 					{
-						//if (buggness) alert(reqnode.httpRequest.status)
-					} else
+						if ( buggness ) UserMessages.Write( "Status: "  + reqnode.httpRequest.status )
+					} else {
 						reqnode.xml = reqnode.httpRequest.responseXML;
-					//alert(reqnode.httpRequest.responseText)
-					reqnode.target.response(reqnode.httpRequest.responseXML)
+						//alert(reqnode.httpRequest.responseText)
+						reqnode.target.response(reqnode.httpRequest.responseXML)
+					}
 				}
 			};
 //alert("Sending:"+this.apost)
@@ -126,19 +128,5 @@ function postscrubber()
 	}
 }
 
-function PostThisForm(how,form,nest)
-{
-	this.parts=nest.split("/");
-	this.what="<form>\n"
-	for (this.n=0;this.n<this.parts.length;this.n++)
-		this.what+="<"+this.parts[this.n]+">\n"
-	this.ps=new postscrubber();
-	this.ps.scrub(this,form);
-	for (this.n=this.parts.length-1;this.n>=0;this.n--)
-		this.what+="</"+this.parts[this.n]+">\n"
-	this.what+="\n</form>"
-	new actionpost(how,this.what,form)
-	return false;
-}
 
 
