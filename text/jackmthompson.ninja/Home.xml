@@ -18,7 +18,7 @@
 					<tr><td></td><td>
 						<input type="button" name="Submit"
 							value="Login"
-							onclick="javascript:PostForm( 'Home', 'Login', 'LoginForm'  )"
+							onclick="javascript:PostForm( 'HomeLogin', 'Home', 'User/Login', 'LoginForm'  )"
 						/>
 					</td></tr>
 					<tr><td></td><td>
