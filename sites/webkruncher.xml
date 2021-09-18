@@ -7,12 +7,12 @@
 		<filter
 			hostname="jackmthompson.ninja"
 		>
-			<site
+			<data
 				path="/home/jmt/websites/text/webkruncher/"
 				protocol="http"
 				port="80"
 			>
-			</site>
+			</data>
 			<data
 				path="/home/jmt/websites/text/jackmthompson.ninja/"
 				protocol="https"
