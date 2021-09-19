@@ -16,9 +16,9 @@
 					<tr><td>User name:</td><td><INPUT name="UserName" /> </td></tr>
 					<tr><td>Password:</td><td><INPUT type="password" name="Password" /> </td></tr>
 					<tr><td></td><td>
-						<input type="button" name="Submit"
+						<INPUT type="button" name="Submit"
 							value="Login"
-							onclick="javascript:PostForm( 'Home', 'Login', 'LoginForm'  )"
+							onclick="javascript:PostForm( 'User', 'Home', 'Web/Login', 'LoginForm'  )"
 						/>
 					</td></tr>
 					<tr><td></td><td>
