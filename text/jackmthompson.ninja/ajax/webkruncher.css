@@ -382,10 +382,12 @@ TD
 	display:inline;
 	background-repeat: no-repeat;
 	position:absolute;
+	width:400px;
+	height:100px;
 	top:0px;
 	left:0px;
 	border:0px solid #003366;
-	white-space:nowrap;
+	background: url( "Steel/Logo/0031.png" );
 }
 
 #MastheadText

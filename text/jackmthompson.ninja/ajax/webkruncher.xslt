@@ -58,7 +58,6 @@
 				<div class="SteelBkgTop" ></div><div class="SteelBkgLeft" ></div><div class="SteelBkgRight" ></div><div class="SteelBkgBottom" ></div>
 				<div id="Masthead" style="">
 					<div id="MastheadText"></div>
-					<div id="WebKruncherLogo" onclick='anim.Clicked(this)' onmouseover='MenuMouseOver(this)' onmouseout='MenuMouseOut(this)' ></div>
 				</div>
 					<div class="Page">
 						<xsl:for-each select="Pages">
