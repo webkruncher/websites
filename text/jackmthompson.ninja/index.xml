@@ -28,7 +28,7 @@
 		<Page name="Contactphone" />
 		<Page name="Contactlinkedin" />
 		<Page name="KrunchServer" />
-		<Page name="login" />
+		<Page name="Login" />
 		<Page name="UserPreferences" />
 	</Pages>
 	<Diagnostics name="Diagnostics" />

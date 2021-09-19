@@ -159,13 +159,7 @@ function Navigate(PageName,external,popupname,popupfeatures,path,option)
 	{
 		if (cell.childNodes[targetNode].childNodes.length < 2)
 		{
-			if (!webkruncherxslt) 
-			{
-				if (buggness) UserMessages.Write("No page xslt yet");
-				BackFlip()
-				return;
-			} else 
-				document.body.setAttribute("style", "display:inline;background:#DDDDDD" )
+			document.body.setAttribute("style", "display:inline;background:#DDDDDD" )
 			cb="LoadedPage("+targetNode+")";
 			pn="";
 			if (path) pn=path;
@@ -308,7 +302,7 @@ function LoadLeftMenu()
 	}
 	DynamicMenuRootNodePosition = new NodePosition(10,250,00,00);
 	r=GetObject('WholePage')
-	new KrunchMenu('MenuRoot',r,DynamicMenuRootNodePosition,'Left',null,null)
+	new KrunchMenu('MenuRoot',r,DynamicMenuRootNodePosition,'WebKruncher',null,null)
 }
 
 function GoHomeAndStartSparky()

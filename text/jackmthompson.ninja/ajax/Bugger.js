@@ -1,7 +1,3 @@
-function MsgCache(txt)
-{
-	this.txt=txt
-}
 
 function MsgTable (roottr)
 {
@@ -14,7 +10,11 @@ function MsgTable (roottr)
 	this.msgcacher  = new Array()
 	this.Write = function (txt)
 	{
-		l=this.roottr.childNodes.length;
+		l=0
+		if ( this.roottr )
+			if ( this.roottr.childNodes )
+				if ( this.roottr.childNodes.length )
+					l=this.roottr.childNodes.length;
 		if (this.LengthLimit > 0)
 			if (l > this.LengthLimit)
 			{
@@ -79,104 +79,4 @@ function MsgTable (roottr)
 	}
 }	
 
-
-function MsgView (TableDna)
-{
-	this.msgmgr = new MsgTable (TableDna)
-	this.status=false
-	this.ndx=0
-	this.Cacher = new Array()
-	this.donthide=false
-	this.MaxLength  = function (l)
-	{
-		this.msgmgr.MaxLength(l)
-	}
-
-	this.Clear = function ()
-	{
-		this.Cacher.remove(0,this.Cacher.length)
-	}
-
-	this.Write = function (txt)
-	{
-		try
-		{
-			this.Cacher[this.Cacher.length]=new MsgCache(txt)
-			if (this.status)
-				this.msgmgr.Write(txt)
-
-			ll=this.Cacher.length
-			llim=this.msgmgr.LengthLimit
-			if (ll > llim)
-			{
-				nr=ll-llim
-				this.Cacher.remove(0,nr)
-			}
-		} catch (e) {
-			CriticalFailure("Bugger: Write-> "+ txt)
-		}
-	}
-
-	this.CantHide = function ()
-	{
-		this.donthide=true
-	}
-
-	this.Hide = function ()
-	{
-		this.status=false
-		if (!this.donthide) this.msgmgr.Hide()
-	}
-
-	this.Show = function ()
-	{
-		this.Hide()
-		try
-		{
-			this.status=true
-			this.dblcache = new Array()
-			this.l=this.Cacher.length
-			this.lim=this.msgmgr.LengthLimit
-			this.start=0
-			if (this.l > this.lim)
-				this.start=this.l-this.lim
-			this.end=this.l
-
-			this.newndx = 0
-			this.vsh=0
-			for (this.vsh=this.start; this.vsh < this.end; this.vsh++)
-			{
-				this.newndx++
-				this.msgmgr.Write(this.Cacher[this.vsh].txt)
-			}
-		} catch (e) {
-			CriticalFailure("Bugger: Hide -> "+ txt)
-		}
-	}
-	this.MouseEvent = function(o,txt)
-	{
-		clientpos="["+o.clientX+"x"+o.clientY+"]"
-		style=o.relatedTarget.getAttribute("class")
-		this.Write(txt+" "+o.relatedTarget.id+" - "+clientpos+" - "+style)
-	}
-}
-
-
-function NoView (TableDna)
-{
-	this.msgmgr = new MsgTable (TableDna)
-	this.status=false
-	this.ndx=0
-	this.Cacher = new Array()
-	this.donthide=false
-	this.MaxLength  = function (l) { }
-	this.Clear = function () { }
-	this.Write = function (txt) 
-	{
-	}
-	this.CantHide = function () { }
-	this.Hide = function () { } 
-	this.Show = function () { }
-	this.MouseEvent = function(o,txt) { }
-}
 

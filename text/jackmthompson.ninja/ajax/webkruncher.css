@@ -674,6 +674,13 @@ TD
 	display:none;
 }
 
+#RootNode
+{
+	position:absolute;
+	top:100px;
+	left:100px;
+}
+
 .UserMessages
 {
 	position:absolute;

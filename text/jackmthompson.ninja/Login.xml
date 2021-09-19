@@ -1,0 +1,39 @@
+
+<Page name="Login">
+	<t>Login</t>
+	<Content role="" >
+		<p> 
+			Authroized personel only beyond this point
+		</p>
+	</Content>
+	<Content role="admin,user" >
+		<p> 
+			Login:
+		</p>
+		<p>
+			<form id="LoginForm" >
+				<table>
+					<tr><td>User name:</td><td><INPUT name="UserName" /> </td></tr>
+					<tr><td>Password:</td><td><INPUT type="password" name="Password" /> </td></tr>
+					<tr><td></td><td>
+						<input type="button" name="Submit"
+							value="Login"
+							onclick="javascript:PostForm( 'HomeLogin', 'Login', 'User/Login', 'LoginForm'  )"
+						/>
+					</td></tr>
+					<tr><td></td><td>
+						<div 
+							style="margin:0px;cursor:pointer;display:inline; color:teal;"
+							onmouseover="this.style.color='blue'"
+							onmouseout="this.style.color='green'"
+							onclick="Navigate('Register')" >
+							Register
+						</div>
+					</td></tr>
+				</table>
+			</form>
+		</p>
+	</Content>
+</Page>
+
+

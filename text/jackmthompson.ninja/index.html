@@ -15,7 +15,6 @@
 		
 		<script type="text/javascript" src="ajax/Tools.js" ></script>
 		<script type="text/javascript" src="ajax/ajax.js" ></script>
-
 		<script type="text/javascript" src="ajax/Breadcrumbs.js" ></script>
 		<script type="text/javascript" src="ajax/Bugger.js" ></script>
 		<script type="text/javascript" src="ajax/Animator.js" ></script>
@@ -42,33 +41,11 @@
    </div>
 
 	</head>
+		<div id="WebKruncherLogo" onclick='anim.Clicked(this)' onmouseover='MenuMouseOver(this)' onmouseout='MenuMouseOut(this)' ></div>
 		<div id="MenuRoot" />
-		<div id="SpareRoot" />
+		<div id="RootNode" style="display:inline;" /> </div>
+		<div id="UserMessagesDiv" class='UserMessages' > <table id="UserMessages" /> </div>
 	<div>
-		<div id="RootNode" style="display:inline;" />
-		<div id="LastDitch" 
-			style="position:absolute; top:300px; left:400px; color:red;"
-		/>
-	</div>
-	<div id="InvalidWebBrowser" 
-		style="display:none;background:white;color:black;width:100%;height:100%;padding:30px;border:outset;"
-	>
-		<div style="width:50%">
-		Invalid user agent
-		<br /><br />
-		Try one of these
-		<br /><br />
-		<div style="margin:20px; padding:20px; border:outset;width:50%">
-			<li style="color:blue">FireFox</li>
-			<li style="color:blue">Chrome</li>
-			<li style="color:blue">Opera</li>
-			<li style="color:blue">Safari</li>
-			<li style="color:blue">Chromium</li>
-		</div>
-		</div>
-
-	</div>
-	<div id="PreInitDiagnosticsDiv"  > <div ></div><table class="Entry" /> </div>
 	<div id="WelcomeDiv" >
 		<center>
 			<div id="DefaultWelcome" class="Entry" style="display:block;">
@@ -115,7 +92,7 @@ function Loader()
 
 	if (substandard) 
 	{
-		SubStandard(); 
+		document.body.write( "Invalid web browser" )
 		return;
 	}
 

@@ -56,10 +56,6 @@
 				<div id="SparkyRoot" />
 				<div ID="SteelBkg" />
 				<div class="SteelBkgTop" ></div><div class="SteelBkgLeft" ></div><div class="SteelBkgRight" ></div><div class="SteelBkgBottom" ></div>
-				<div id="Masthead" style="">
-					<div id="MastheadText"></div>
-					<div id="WebKruncherLogo" onclick='anim.Clicked(this)' onmouseover='MenuMouseOver(this)' onmouseout='MenuMouseOut(this)' ></div>
-				</div>
 					<div class="Page">
 						<xsl:for-each select="Pages">
 							<xsl:call-template name="PageContent" />
@@ -171,7 +167,7 @@
 			<div id="CrumbDiv" class='BreadCrumbs' > <table id="CrumbTable" /> </div>
 		</div>
 
-		<div id="UserMessagesDiv" class='UserMessages' > <table id="UserMessages" /> </div>
+		<!--div id="UserMessagesDiv" class='UserMessages' > <table id="UserMessages" /> </div-->
 	</xsl:template >
 
 	<xsl:template name="SystemLockMessages" >
