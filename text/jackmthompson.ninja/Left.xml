@@ -6,6 +6,20 @@
 			<name></name><text>Main</text>
 			<item><clicked>Navigate("Home")</clicked><name>Home</name><text>Home</text></item>
 		</item>
+		<item>
+			<name>Software</name><text>Software</text>
+			<xc>Navigate("Services")</xc>
+			<item>
+				<item>
+					<name>Projects</name><text>Projects</text>
+					<opensub>DepotMenu</opensub>
+				</item>
+				<item>
+					<name>Services</name><text>Services</text>
+					<opensub>Krunch</opensub>
+				</item>
+			</item>
+		</item>
 		<item role="admin,user" >
 			<name>DB</name><text>DB</text>
 		</item>

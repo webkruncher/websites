@@ -236,9 +236,6 @@
 					<xsl:attribute name="id" >Txt_<xsl:value-of select="name" />_<xsl:value-of select="$Identifire" /></xsl:attribute>
 					<xsl:choose>
 						<xsl:when test="text=''" ><hr /></xsl:when>
-						<xsl:when test="text='Main'" >
-							<div style="width:100%;color:silver;border:outset;padding:4px;text-align:center;cursor:crosshair;font-style:italic;font-weight:bold;" >Menu</div>
-						</xsl:when>
 						<xsl:otherwise><xsl:value-of select="text" /></xsl:otherwise>
 					</xsl:choose>
 					<div>

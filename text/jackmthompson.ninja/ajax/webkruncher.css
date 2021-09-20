@@ -147,7 +147,7 @@ body
 .LMenuLink
 {
 	border:none;
-	color:silver;
+	color:black;
 	cursor:pointer;
 	font-style:normal;
 	display:block;
@@ -156,7 +156,7 @@ body
 .LMenuLink:link
 {
 	border:none;
-	color:silver;
+	color:black;
 	cursor:pointer;
 	font-style:italic;
 	display:block;
@@ -165,7 +165,7 @@ body
 .LMenuLink:active
 {
 	border:none;
-	color:silver;
+	color:black;
 	font-style:oblique;
 	cursor:pointer;
 	display:block;
@@ -174,7 +174,7 @@ body
 .LMenuLink:visited
 {
 	border:none;
-	color:silver;
+	color:black;
 	cursor:pointer;
 	display:block;
 }
@@ -193,13 +193,12 @@ body
 {
 	padding:10px;
 	width:130px;
-	border:inset; 
-	background:#34282C;
+	background:#AAAAAA;
 }
 
 .MenuFrame
 {
-	color:silver;
+	color:black;
 	margin:0px;
 	vertical-align:top;
 	text-decoration:  none;
@@ -215,25 +214,25 @@ body
 {
 	width:24ex; 
 	padding:4px;  
-	border:thin outset gray;
-	background:#010101;
+	border:0px;
+	background:#AAAAAA;
 	background-repeat:repeat-x repeat-y;
 }
 
 .PopUpMenuTitle
 {
-	color:silver;
+	display:none;
 	background-repeat:repeat-x repeat-y;
 }
 
 .PopUpMenu
 {
-	border:thick inset silver;
+	border:0px;
 	padding:3px;
 	margin:3px;
 	width:22ex;
-	color:silver;
-	background:#010101;
+	color:black;
+	background:#AAAAAA;
 	background-repeat:repeat-x repeat-y;
 }
 
@@ -247,7 +246,7 @@ body
 	white-space:nowrap;
 	background-repeat: repeat;
 	width:10ex;
-	background:gray;
+	background:AAAAAA;
 	background-repeat:repeat-x repeat-y;
 }
 
@@ -255,7 +254,7 @@ body
 {
 	margin-left:4px;
 	margin-top:0px;
-	border:none;
+	border:0px;
 	cursor:pointer;
 	display:block;
 	font-size:12px;
@@ -265,7 +264,7 @@ body
 {
 	margin-left:4px;
 	margin-top:0px;
-	border:none;
+	border:0px;
 	cursor:pointer;
 	display:inline;
 	font-size:12px;
@@ -273,7 +272,7 @@ body
 
 .SubMenuButton
 {
-	color:silver;
+	color:black;
 	width:100%;
 }
 
@@ -296,14 +295,14 @@ body
 {
 	margin-left:10px;
 	margin-top:10px;
-	color:silver;
+	color:black;
 	display:block;
 }
 
 .SubMenuLink
 {
 	margin-left:20px;
-	border:none;
+	border:0px;
 	text-decoration:none;
 	color:navy;
 	font-style:italic;
@@ -314,7 +313,7 @@ body
 .SubMenuLink:active
 {
 	margin-left:20px;
-	border:none;
+	border:0px;
 	text-decoration:none;
 	color:red;
 	font-style:italic;
@@ -326,7 +325,7 @@ body
 {
 	margin-left:20px;
 	font: 10px arial;
-	border:none;
+	border:0px;
 	text-decoration:none;
 	color:black;
 	font-style:italic;
@@ -338,9 +337,8 @@ body
 .SubMenuLink:link
 {
 	margin-left:20px;
-	border:none;
+	border:0px;
 	text-decoration:none;
-	color:green;
 	font-style:italic;
 	font-weight:800;
 	cursor:pointer;
@@ -349,7 +347,7 @@ body
 .SubMenuLink:hover
 {
 	margin-left:20px;
-	border:none;
+	border:0px;
 	text-decoration:none;
 	color:blue;
 	font-style:italic;
@@ -359,7 +357,6 @@ body
 
 TABLE
 {
-	border-collapse:collapse;
 }
 
 TR
@@ -410,7 +407,7 @@ TD
 {
 	margin:0;
 	padding:0;
-	border:thick outset silver;
+	border:0px;
 }
 
 .Page
@@ -425,7 +422,6 @@ TD
 	top:153px;
 	width:800px;
 	background-repeat:repeat-x repeat-y;
-	border:inset;
 }	
 
 .Paragraph
@@ -706,6 +702,7 @@ TD
 {
 	cursor:pointer;
 	color:silver;
+	background:#AAAAAA;
 	display:none;
 	position:absolute;
 	left:580px;
@@ -714,6 +711,7 @@ TD
 
 #CrumbDiv
 {
+	background:#AAAAAA;
 	cursor:pointer;
 	font-weight:bold;
 	line-height:10px;
@@ -747,11 +745,10 @@ tr
 
 th
 {
-	color:silver;
+	color:black;
 	text-align:left;
 	padding-left:8px;
 	padding-right:8px;
-	border-bottom:thick inset silver;
 }
 
 
@@ -762,6 +759,5 @@ td
 	text-align:left;
 	padding-left:8px;
 	padding-right:8px;
-	border-bottom:thin outset silver;
 }
 
