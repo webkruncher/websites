@@ -191,11 +191,11 @@ function AfterAjax2()
 		UserMessages=new MsgTable(GetObject('UserMessages'))
 //		if (buggness) 
 		{
-			UserMessages.Color("yellow");
-			UserMessages.Background("black");
-			UserMessages.FontSize("12px");
+			//UserMessages.Color("yellow");
+			//UserMessages.Background("black");
+			//UserMessages.FontSize("12px");
 		}
-		UserMessages.MaxLength(30)
+		UserMessages.MaxLength(3)
 	}
 
 	//if (buggness) UserMessages.Write("Testing in progress")

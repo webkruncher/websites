@@ -194,6 +194,8 @@ body
 	padding:10px;
 	width:130px;
 	background:#AAAAAA;
+	color:#AAAAAA;
+	border:outset;
 }
 
 .MenuFrame
@@ -444,7 +446,7 @@ TD
 .PageTitle
 {
 	font-size:+1em;
-	color:silver;
+	color:black;
 	display:block;
 	position:absolute;
 	border:outset thin;
@@ -453,7 +455,7 @@ TD
 	padding-left:40px;
 	top:-20;
 	left:-20px;
-	background:#010101;
+	background:#999999;
 	width:180px;
 }
 
@@ -465,10 +467,10 @@ TD
 	cursor:pointer;
 	background:outset;
 	border:thin;
-	color:white;
+	color:black;
 	display:none;
 	font-size:6pt;
-	background:#010101;
+	background:#999999;
 }
 
 .FwdNavButton
@@ -479,10 +481,10 @@ TD
 	cursor:pointer;
 	background:outset;
 	border:thin;
-	color:white;
+	color:black;
 	display:none;
 	font-size:6pt;
-	background:#010101;
+	background:#999999;
 }
 
 #PageText
