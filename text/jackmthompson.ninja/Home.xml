@@ -15,12 +15,14 @@
 				<table>
 					<tr><td>User name:</td><td><INPUT name="UserName" /> </td></tr>
 					<tr><td>Password:</td><td><INPUT type="password" name="Password" /> </td></tr>
+					<tr><td><br /> </td></tr>
 					<tr><td></td><td>
 						<INPUT type="button" name="Submit"
 							value="Login"
 							onclick="javascript:PostForm( 'User', 'Home', 'Web/Login', 'LoginForm'  )"
 						/>
 					</td></tr>
+					<tr><td><br /> </td></tr>
 					<tr><td></td><td>
 						<div 
 							style="margin:0px;cursor:pointer;display:inline; color:teal;"

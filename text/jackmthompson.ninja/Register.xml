@@ -15,6 +15,7 @@
 				<table>
 					<tr><td>User name:</td><td><INPUT name="UserName" /> </td></tr>
 					<tr><td>Password:</td><td><INPUT type="password" name="Password" /> </td></tr>
+					<tr><td><br /> </td></tr>
 					<tr><td></td><td>
 						<input type="button" name="Submit"
 							value="Register"
