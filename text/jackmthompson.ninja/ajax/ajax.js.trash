@@ -1,0 +1,200 @@
+
+
+var webkruncherxslt=null;
+var webkruncherxslt_txt="";
+
+
+
+function ajax(xmlname,target,callback,positioner,apost=null) 
+{
+	try
+	{
+		this.xmlname = xmlname;
+		this.target = target;
+		this.callback=callback
+		this.positioner=positioner
+		this.apost=apost
+		this.httpRequest = new XMLHttpRequest(); 
+		this.httpRequest.async = false
+		this.cachexslt = false;
+		if (!this.xmlname.length) 
+		{
+			if ( webkruncherxslt ) return
+			this.cachexslt=true;
+			this.load('ajax/webkruncher.xslt', this.apost)
+		} else {
+			if ( buggness  ) 
+				if ( UserMessages ) UserMessages.Write( this.xmlname )
+			this.load(this.xmlname, this.apost)
+		}
+	} catch (e) {
+		alert( e ) 
+	}
+}
+
+
+
+ajax.prototype.getXMLHttpRequest = function () 
+{
+	try 
+	{ 
+		return new XMLHttpRequest(); 
+	} catch(e) {
+		alert( e )
+	}
+	return null;
+}
+
+ajax.prototype.StatusMessage = function(ssv)
+{
+	if (ssv == '0') return 'uninitialized';
+	if (ssv == '1') return 'loading';
+	if (ssv == '2') return 'loaded';
+	if (ssv == '3') return 'interactive';
+	if (ssv == '4') return 'complete';
+	return 'unknown state'
+}
+
+
+ajax.prototype.StatusChange = function (url,reqobj)
+{
+	if (buggness) UserMessages.Write( "Ajax status:" + parseInt( reqobj.status ) )
+	StatusMessage( reqobj.status )
+	if (reqobj.status == 200)
+	{
+	}
+}
+
+ajax.prototype.load = function (url, apost)
+{
+
+	UserMessages.Write("Getting " + url)
+	try
+	{
+		if (this.httpRequest != null) 
+		{
+			var reqnode = this;
+			if ( apost==null ) 
+			{
+				this.httpRequest.open('get', url, true);
+			} else {
+				this.httpRequest.open('post', url, true);
+				this.httpRequest.setRequestHeader("Content-length", apost.length);
+			}
+			this.httpRequest.timeout = 5000
+			this.httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			this.httpRequest.setRequestHeader("Connection", "close");
+
+			this.httpRequest.onload = function () 
+			{
+				if (buggness) UserMessages.Write( url + " loaded " )
+			}
+			this.httpRequest.ontimeout = function () 
+			{
+				if (buggness) UserMessages.Write( url + " timeout " )
+			}
+			this.httpRequest.onreadystatechange = function () 
+			{
+				reqnode.StatusChange(url,reqnode.httpRequest)
+				if (reqnode.httpRequest.readyState == 4) 
+				{
+					if (reqnode.httpRequest.status == 422) 
+					{
+						document.location="/index.html"
+						return
+					}
+					if (reqnode.httpRequest.status != 200) 
+					{
+alert( "not 200" )
+						if (buggness) UserMessages.Write( url + " status " + reqnode.httpRequest.status )
+					}
+					if (reqnode.cachexslt)
+					{
+						webkruncherxslt=reqnode.httpRequest.responseXML;
+						webkruncherxslt_txt=reqnode.httpRequest.responseText;
+						return;
+					}
+					reqnode.xml = reqnode.httpRequest.responseXML;
+					if (this.xmlname == "unused_ping.xml") 
+					{
+						if (reqnode.callback) reqnode.callback( reqnode.httpRequest.status )
+					} else {
+						if (reqnode.httpRequest.responseText.length < 1)
+						{ 
+							this.httpRequest.send(apost)
+						} else {
+							reqnode.xform();
+							if (reqnode.positioner) 
+							{
+								reqnode.positioner(reqnode.transformed)
+							}
+							if (!reqnode.transformed) 
+							{
+								ajax(this.xmlname,  this.target,this.callback,this.positioner) 
+								return ;
+							}
+							if  ( reqnode.target ) 
+								reqnode.target.appendChild(reqnode.transformed)
+							if (reqnode.callback) 
+							{
+								if ( typeof( reqnode.callback ) == "function" ) 
+								{
+									setTimeout(reqnode.callback,10)
+								} else  {
+									if ( typeof( reqnode.callback ) == "string" )
+									{
+										alert( reqnode.callback )
+										eval( reqnode.callback )
+									}
+								}
+							}
+						}
+					}
+				}
+			};
+			this.httpRequest.send(apost);
+		}
+	} catch (e) {
+		alert(e)
+	}
+};
+
+ajax.prototype.xform = function () 
+{
+	try
+	{
+		if (typeof XSLTProcessor != 'undefined') 
+		{
+			var xsltProcessor = new XSLTProcessor();
+			xsltProcessor.importStylesheet(webkruncherxslt)
+			this.transformed=
+				xsltProcessor.transformToFragment(this.xml, this.target.ownerDocument);
+		}
+		else 
+			if (typeof this.xml.transformNode != 'undefined') 
+			{
+				this.transformed=
+					this.xml.transformNode(webkruncherxslt);
+			}
+			 else {
+				alert("ajax failed")
+			 }
+	} catch (e) {
+		alert(e)
+	}
+}
+
+
+
+
+function InitializeAjax() 
+{
+	try { 
+		new ajax('','',null,null);
+	} catch(e) {
+		alert( "Ajax error" )
+	}
+}
+
+		
+		

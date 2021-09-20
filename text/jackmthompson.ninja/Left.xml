@@ -21,10 +21,15 @@
 			</item>
 		</item>
 		<item role="admin,user" >
-			<name>DB</name><text>DB</text>
+			<name>Users</name><text>Users</text>
+			<item><clicked>Navigate("Login")</clicked><name>Login</name><text>Login</text></item>
 		</item>
 		<item>
 			<name>Contact</name><text>Contact</text>
+			<item>
+				<name>Call or Write</name><text>Call or Write</text>
+				<clicked>Navigate("Contactphone")</clicked>
+			</item>
 			<item>
 				<name>Linked In</name><text>Linked In</text>
 				<clicked>Navigate("Contactlinkedin")</clicked>
