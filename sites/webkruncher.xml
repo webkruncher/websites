@@ -19,8 +19,8 @@
 				protocol="https"
 				port="443"
 				passwordfile="/etc/webkruncher.pwd"
-				certfile="/etc/certs/jackmthompson.ninja/JACKMTHOMPSON.NINJA.crt"
-				keyfile="/etc/certs/jackmthompson.ninja/server.key"
+				certfile="/etc/certs/webkruncher.com/WEBKRUNCHER.COM.crt"
+				keyfile="/etc/certs/webkruncher.com/server.key"
 				cafile="/etc/ssl/cert.pem"
 			>
 				<roles>
