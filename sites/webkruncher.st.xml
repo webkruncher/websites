@@ -1,0 +1,47 @@
+
+
+<root>
+	<domain 
+		name="jackmthompson.ninja"
+		threads="1"
+		forks="1"
+	>
+		<filter
+			hostname="jackmthompson.ninja"
+		>
+			<data
+				path="/home/jmt/websites/text/webkruncher/"
+				path="/home/jmt/websites/text/jackmthompson.ninja/"
+				protocol="http"
+				port="81"
+			>
+			</data>
+			<site
+				path="/home/jmt/websites/text/webkruncher/"
+				path="/home/jmt/websites/text/jackmthompson.ninja/"
+				protocol="http"
+				port="80"
+			>
+			</site>
+			<site
+				path="/home/jmt/websites/text/jackmthompson.ninja/"
+				protocol="https"
+				port="443"
+				passwordfile="/etc/webkruncher.pwd"
+				certfile="/etc/certs/webkruncher.com/WEBKRUNCHER.COM.crt"
+				keyfile="/etc/certs/webkruncher.com/server.key"
+				cafile="/etc/ssl/cert.pem"
+			>
+				<roles>
+					<user
+						name="jmt"
+						ipaddr="73.201.184.88"
+						role="admin,user"
+					/>
+				</roles>
+			</site>
+		</filter>
+
+	</domain>
+</root>
+
