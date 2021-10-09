@@ -3,6 +3,7 @@
 <root>
 	<domain 
 		name="jackmthompson.ninja"
+		host="localhost"
 	>
 		<filter
 			hostname="jackmthompson.ninja"
