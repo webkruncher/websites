@@ -3,7 +3,7 @@
 <root>
 	<domain 
 		name="jackmthompson.ninja"
-		host="localhost"
+		host="webkruncher.com"
 	>
 		<filter
 			hostname="jackmthompson.ninja"
