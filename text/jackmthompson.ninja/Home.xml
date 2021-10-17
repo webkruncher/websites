@@ -18,7 +18,7 @@
 			<div style="display:inline">
 			All of the client side script is 
 			home made, and the only software used is the operating system, the standard 
-			tool-chain, The Berkeley DB library, and a few custom source files.</div>
+			tool-chain, The Berkeley DB library, and custom C++ source files.</div>
 		</p>
 		<p> 
 			International standards power the internet.  The information super highway
