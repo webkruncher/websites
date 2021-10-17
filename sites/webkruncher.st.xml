@@ -5,6 +5,7 @@
 		name="jackmthompson.ninja"
 		threads="1"
 		forks="1"
+		host="localhost"
 	>
 		<filter
 			hostname="jackmthompson.ninja"
