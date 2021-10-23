@@ -20,10 +20,10 @@
 				</item>
 			</item>
 		</item>
-		<item role="admin,user" >
+		<!--item role="admin,user" >
 			<name>Users</name><text>Users</text>
 			<item><clicked>Navigate("Login")</clicked><name>Login</name><text>Login</text></item>
-		</item>
+		</item-->
 		<item>
 			<name>Contact</name><text>Contact</text>
 			<item>
