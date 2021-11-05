@@ -11,20 +11,20 @@
 			<data
 				path="/home/jmt/websites/text/webkruncher/"
 				path="/home/jmt/websites/text/jackmthompson.ninja/"
-				protocol="http"
+				scheme="http"
 				port="81"
 			>
 			</data>
 			<site
 				path="/home/jmt/websites/text/webkruncher/"
 				path="/home/jmt/websites/text/jackmthompson.ninja/"
-				protocol="http"
+				scheme="http"
 				port="80"
 			>
 			</site>
 			<site
 				path="/home/jmt/websites/text/jackmthompson.ninja/"
-				protocol="https"
+				scheme="https"
 				port="443"
 				passwordfile="/etc/webkruncher.pwd"
 				certfile="/etc/certs/webkruncher.com/WEBKRUNCHER.COM.crt"
