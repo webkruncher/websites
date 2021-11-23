@@ -4,6 +4,8 @@
 	<domain 
 		name="jackmthompson.ninja"
 		host="localhost"
+		forks="10"
+		threads="10"
 	>
 		<filter
 			hostname="jackmthompson.ninja"
