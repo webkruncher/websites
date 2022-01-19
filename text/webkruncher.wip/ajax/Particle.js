@@ -210,7 +210,7 @@ function ParticleSystem(pbugger,myname,depth,maxdepth,side,mode,todo)
 	this.DontReProduce = function()
 	{
 		this.Piece.fertile=false;
-		this.Piece.ThingTicker=-1;
+		this.Piece.ThingTickerBase=-1;
 		if (this.l) this.l.DontReProduce();
 		if (this.r) this.r.DontReProduce();
 	}

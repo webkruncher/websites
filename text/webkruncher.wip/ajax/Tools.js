@@ -201,7 +201,7 @@ function Clamp(i,b,t)
 	return i;
 }
 
-function Ticker()
+function TickerBase()
 {
 	this.Ticks = function () {return new Date();}
 	this.Delta = function (a,b) {return b - a;}
@@ -218,7 +218,7 @@ function ThrottleManager(name)
 	this.UpdateCall = this.myname+'.Update()';
 	this.interval = 100;
 	this.mood=0;
-	this.Benchmarks = new Ticker;
+	this.Benchmarks = new TickerBase;
 	this.accumulator=0;
 
 	this.Delta = function () 

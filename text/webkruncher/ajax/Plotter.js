@@ -63,7 +63,7 @@ function Thing(MyHead)
 	this.launched=null;
 	this.yoursub=null;
 	this.le=null
-	this.ThingTicker = 100;
+	this.ThingTickerBase = 100;
 
 	this.IsOkToShow = function(top,left)
 	{
@@ -101,7 +101,7 @@ function Thing(MyHead)
 
 	this.reset=function()
 	{
-		this.ThingTicker=Random(300)+10;
+		this.ThingTickerBase=Random(300)+10;
 	}
 	this.fertile=true;
 
@@ -122,7 +122,7 @@ function Thing(MyHead)
 		if (this.Head.d==0)
 		if (this.fertile) 
 		{
-			if (this.ThingTicker == 0)
+			if (this.ThingTickerBase == 0)
 			{
 				if (this.Head)
 				{
@@ -150,7 +150,7 @@ function Thing(MyHead)
 					}
 				}
 			} else {
-				this.ThingTicker-=1
+				this.ThingTickerBase-=1
 			}
 		}
 	}

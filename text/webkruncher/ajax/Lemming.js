@@ -75,7 +75,7 @@ function Lemming(myname,ps)
      this.Ellapsed = function () {return this.Delta ( this.Now, this.Ticks().getTime() );}
      this.Set = function () { this.Now = this.Ticks().getTime(); }
 
-     this.TurnTicker = new Ticker();
+     this.TurnTickerBase = new TickerBase();
      this.Goal = new Goallie();
 
      this.Tick = function ()
@@ -93,10 +93,10 @@ function Lemming(myname,ps)
           this.Tick();
           if (this.Wander)
           {
-               if (this.TurnTicker.Ellapsed() > 100)
+               if (this.TurnTickerBase.Ellapsed() > 100)
                {
                     this.Goal.Seek(this.ps.Motivation.force,this.ps.Motivation.direction,this.ps.Motivation.GetX(),this.ps.Motivation.GetY());
-                    this.TurnTicker.Set();
+                    this.TurnTickerBase.Set();
 			seeking.Update(this.mx,this.my," !  "+this.mx+"x"+this.my)
 
                } else {
@@ -138,7 +138,7 @@ function Lemming(myname,ps)
           this.lastmx=mmmx;
           this.lastmy=mmmy;
      }
-     this.TurnTicker.Set();
+     this.TurnTickerBase.Set();
      this.Wanderer();
 
 }
