@@ -12,6 +12,7 @@
 		<Include filename="Utilities.xml" />
 		<Include filename="Demos.xml" />
 		<Include filename="Outside.xml" />
+		<Include filename="Privacy.xml" />
 		<Page name="Skills" />
 		<Page name="Services" />
 		<Page name="Home" />
@@ -29,6 +30,7 @@
 		<Page name="KrunchServer" />
 		<Page name="login" />
 		<Page name="UserPreferences" />
+		<Page name="Privacy" />
 	</Pages>
 	<Diagnostics name="Diagnostics" />
 </html>
